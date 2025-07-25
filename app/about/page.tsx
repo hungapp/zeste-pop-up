@@ -29,51 +29,43 @@ export default function AboutPage() {
         </div>
 
         {/* Team Photos */}
-        <div className="space-y-16 md:space-y-24">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
           {/* First Photo */}
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="flex-1 max-w-md">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <Image
-                  src="/hung_trang.jpg"
-                  alt="Hung and Trang celebrating with birthday cake and flowers"
-                  width={500}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+          <div className="flex-1 text-center">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-4">
+              <Image
+                src="/hung_trang.jpg"
+                alt="Hung and Trang celebrating with birthday cake and flowers"
+                width={400}
+                height={480}
+                className="w-full h-auto object-cover"
+              />
             </div>
-            <div className="flex-1 text-center md:text-left space-y-4">
-              <h3 className="text-2xl md:text-3xl font-bold text-[#2144c0]">Hung & Trang</h3>
-              <p className="text-lg text-[#2f2f2f] leading-relaxed">
-                The creative duo behind Zesté's innovative dessert concepts. Their passion for combining traditional
-                techniques with modern flavors brings you unique creations like our signature Japanese rolls with globally
-                inspired fillings.
-              </p>
-            </div>
+            <h3 className="text-xl md:text-2xl font-bold text-[#2144c0] mb-2">Ritu & Trang</h3>
+            <p className="text-base text-[#2f2f2f] leading-relaxed">
+              The creative duo behind Zesté's innovative dessert concepts. Their passion for combining traditional
+              techniques with modern flavors brings you unique creations like our signature Japanese rolls with globally
+              inspired fillings.
+            </p>
           </div>
 
           {/* Second Photo */}
-          <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
-            <div className="flex-1 max-w-md">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <Image
-                  src="/phan_ritu.jpg"
-                  alt="Phan, Ritu and their baby celebrating with birthday cake"
-                  width={500}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+          <div className="flex-1 text-center">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-4">
+              <Image
+                src="/phan_ritu.jpg"
+                alt="Phan, Ritu and their baby celebrating with birthday cake"
+                width={400}
+                height={480}
+                className="w-full h-auto object-cover"
+              />
             </div>
-            <div className="flex-1 text-center md:text-left space-y-4">
-              <h3 className="text-2xl md:text-3xl font-bold text-[#2144c0]">Phan, Ritu & Family</h3>
-              <p className="text-lg text-[#2f2f2f] leading-relaxed">
-                The heart of our operations team, bringing warmth and hospitality to every pop-up event. Their
-                dedication to quality and customer experience ensures that every visit to Zesté feels like a celebration
-                with family.
-              </p>
-            </div>
+            <h3 className="text-xl md:text-2xl font-bold text-[#2144c0] mb-2">Hung & Phan Anh</h3>
+            <p className="text-base text-[#2f2f2f] leading-relaxed">
+              The heart of our operations team, bringing warmth and hospitality to every pop-up event. Their
+              dedication to quality and customer experience ensures that every visit to Zesté feels like a celebration
+              with family.
+            </p>
           </div>
         </div>
 
