@@ -24,7 +24,7 @@ export default function HomePage() {
         {/* Description */}
         <p className="text-base md:text-lg leading-relaxed mb-8 max-w-[600px] mx-auto text-[#2f2f2f]">
           Welcome to <strong>Zesté</strong> – your destination for delightful desserts and refreshing drinks at local
-          pop‑up events. Join us as we bring sweet indulgence and vibrant flavours to the vibrant Providence food scene. Follow
+          pop‑up events. Join us as we bring sweet indulgence and vibrant flavours to the Providence food scene. Follow
           along and we'll let you know where we're popping up next!
         </p>
 
