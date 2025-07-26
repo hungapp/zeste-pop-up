@@ -61,7 +61,7 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className="w-full inline-block text-center py-3 px-6 bg-[#f5c84d] text-[#2f2f2f] font-semibold rounded-full shadow-md hover:opacity-90 transition-opacity duration-200"
           >
-            Feedback
+            Leave Feedback
           </a>
 
           <Link
