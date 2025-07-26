@@ -29,39 +29,40 @@ export default function AboutPage() {
         </div>
 
         {/* Team Photos */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-          {/* First Photo */}
-          <div className="flex-1 text-center">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-4">
-              <Image
-                src="/hung_trang.jpg"
-                alt="Hung and Trang celebrating with birthday cake and flowers"
-                width={400}
-                height={480}
-                className="w-full h-auto object-cover"
-              />
-            </div>
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center mb-12">
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <Image
+              src="/hung_trang.jpg"
+              alt="Hung and Trang celebrating with birthday cake and flowers"
+              width={400}
+              height={480}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <Image
+              src="/phan_ritu.jpg"
+              alt="Phan, Ritu and their baby celebrating with birthday cake"
+              width={400}
+              height={480}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Team Descriptions */}
+        <div className="space-y-8">
+          <div className="text-center">
             <h3 className="text-xl md:text-2xl font-bold text-[#2144c0] mb-2">Ritu & Trang</h3>
-            <p className="text-base text-[#2f2f2f] leading-relaxed">
+            <p className="text-base text-[#2f2f2f] leading-relaxed max-w-2xl mx-auto">
               The creative duo behind Zesté's innovative dessert concepts. Their passion for combining traditional
               techniques with modern flavors brings you unique creations like our signature Japanese rolls with globally
               inspired fillings.
             </p>
           </div>
-
-          {/* Second Photo */}
-          <div className="flex-1 text-center">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-4">
-              <Image
-                src="/phan_ritu.jpg"
-                alt="Phan, Ritu and their baby celebrating with birthday cake"
-                width={400}
-                height={480}
-                className="w-full h-auto object-cover"
-              />
-            </div>
+          <div className="text-center">
             <h3 className="text-xl md:text-2xl font-bold text-[#2144c0] mb-2">Hung & Phan Anh</h3>
-            <p className="text-base text-[#2f2f2f] leading-relaxed">
+            <p className="text-base text-[#2f2f2f] leading-relaxed max-w-2xl mx-auto">
               The heart of our operations team, bringing warmth and hospitality to every pop-up event. Their
               dedication to quality and customer experience ensures that every visit to Zesté feels like a celebration
               with family.
@@ -69,14 +70,36 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Friends Photos */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center mt-16 mb-12">
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <Image
+              src="/young_friends.jpeg"
+              alt="Young friends"
+              width={400}
+              height={480}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <Image
+              src="/old_friends.jpeg"
+              alt="Old friends"
+              width={400}
+              height={480}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+
         {/* Mission Statement */}
-        <div className="text-center mt-16 pt-12 border-t border-[#2144c0]/10">
+        <div className="text-center pt-12 border-t border-[#2144c0]/10">
           <h3 className="text-2xl md:text-3xl font-bold text-[#2144c0] mb-6">Our Mission</h3>
           <p className="text-lg leading-relaxed max-w-3xl mx-auto text-[#2f2f2f] mb-8">
             We believe that great food brings people together. Every dessert we create, every drink we serve, and every
             pop-up event we host is designed to create moments of joy and connection in our community.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mt-8">
             <Link
               href="/"
               className="flex-1 py-3 px-6 bg-[#2144c0] text-white font-semibold rounded-full shadow-md hover:opacity-90 transition-opacity duration-200 text-center"
