@@ -9,7 +9,7 @@ export default function MenuPage() {
         <Link href="/">
           <Image
             src="/logo.jpg"
-            alt="Zesté logo"
+            alt="Suis logo"
             width={140}
             height={84}
             className="mx-auto max-w-[140px] w-full h-auto"
