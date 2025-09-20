@@ -10,7 +10,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Zesté | Sip & Savour",
+  title: "Suis | Sip & Savour",
   description:
     "Your destination for delightful desserts and refreshing drinks",
 }

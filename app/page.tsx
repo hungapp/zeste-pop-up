@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="mb-6">
           <Image
             src="/logo.jpg"
-            alt="Zesté logo"
+            alt="Suis logo"
             width={200}
             height={120}
             className="mx-auto max-w-[200px] w-full h-auto"
@@ -23,7 +23,7 @@ export default function HomePage() {
 
         {/* Description */}
         <p className="text-base md:text-lg leading-relaxed mb-8 max-w-[600px] mx-auto text-[#2f2f2f]">
-          Welcome to <strong>Zesté</strong> – your destination for delightful desserts and refreshing drinks at local
+          Welcome to <strong>Suis</strong> – your destination for delightful desserts and refreshing drinks at local
           pop‑up events. Join us as we bring sweet indulgence and vibrant flavours to the Providence food scene. Follow
           along and we'll let you know where we're popping up next!
         </p>
@@ -56,7 +56,7 @@ export default function HomePage() {
           </Link>
 
           <a
-            href="https://forms.gle/3pUiwCZ4qBbgZSLw5"
+            href="https://forms.gle/vRpmUKdzYf2jjmVH6"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-block text-center py-3 px-6 bg-[#f5c84d] text-[#2f2f2f] font-semibold rounded-full shadow-md hover:opacity-90 transition-opacity duration-200"

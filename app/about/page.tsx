@@ -9,7 +9,7 @@ export default function AboutPage() {
         <Link href="/">
           <Image
             src="/logo.jpg"
-            alt="Zesté logo"
+            alt="Suis logo"
             width={140}
             height={84}
             className="mx-auto max-w-[140px] w-full h-auto"
@@ -23,7 +23,7 @@ export default function AboutPage() {
         {/* Introduction Text */}
         <div className="text-center mb-12">
           <p className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto text-[#2f2f2f]">
-            At the heart of Zesté is a passionate and experienced team, united by a shared vision: to bring a fresh and
+            At the heart of Suis is a passionate and experienced team, united by a shared vision: to bring a fresh and
             globally inspired brunch and dessert experience to the vibrant Providence food scene.
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function AboutPage() {
           <div className="text-center">
             <h3 className="text-xl md:text-2xl font-bold text-[#2144c0] mb-2">Ritu & Trang</h3>
             <p className="text-base text-[#2f2f2f] leading-relaxed max-w-2xl mx-auto">
-              The creative duo behind Zesté's innovative dessert concepts. Their passion for combining traditional
+              The creative duo behind Suis's innovative dessert concepts. Their passion for combining traditional
               techniques with modern flavors brings you unique creations like our signature Japanese rolls with globally
               inspired fillings.
             </p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
             <h3 className="text-xl md:text-2xl font-bold text-[#2144c0] mb-2">Hung & Phan Anh</h3>
             <p className="text-base text-[#2f2f2f] leading-relaxed max-w-2xl mx-auto">
               The heart of our operations team, bringing warmth and hospitality to every pop-up event. Their
-              dedication to quality and customer experience ensures that every visit to Zesté feels like a celebration
+              dedication to quality and customer experience ensures that every visit to Suis feels like a celebration
               with family.
             </p>
           </div>
