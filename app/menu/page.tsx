@@ -23,7 +23,7 @@ export default function MenuPage() {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start md:gap-8 items-center">
           <div className="w-full md:max-w-[480px] mb-6 md:mb-0">
             <Image
-              src="/dessert_menu.png"
+              src="/dessert_menu.jpg"
               alt="Dessert Menu"
               width={480}
               height={640}
@@ -32,7 +32,7 @@ export default function MenuPage() {
           </div>
           <div className="w-full md:max-w-[480px]">
             <Image
-              src="/drink_menu.png"
+              src="/drink_menu.jpg"
               alt="Drink Menu"
               width={480}
               height={640}
