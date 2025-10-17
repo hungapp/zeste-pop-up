@@ -32,17 +32,8 @@ export default function AboutPage() {
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center mb-12">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <Image
-              src="/hung_trang.jpg"
-              alt="Hung and Trang celebrating with birthday cake and flowers"
-              width={400}
-              height={480}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <Image
-              src="/phan_ritu.jpg"
-              alt="Phan, Ritu and their baby celebrating with birthday cake"
+              src="trang_ritu.jpg"
+              alt="Trang and Ritu celebrating the second pop-up"
               width={400}
               height={480}
               className="w-full h-auto object-cover"
@@ -76,15 +67,6 @@ export default function AboutPage() {
             <Image
               src="/young_friends.jpeg"
               alt="Young friends"
-              width={400}
-              height={480}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <Image
-              src="/old_friends.jpeg"
-              alt="Old friends"
               width={400}
               height={480}
               className="w-full h-auto object-cover"

@@ -31,7 +31,7 @@ export default function HomePage() {
         {/* Buttons */}
         <div className="flex flex-col items-center gap-4 mx-auto w-full max-w-[300px]">
           <a
-            href="https://www.instagram.com/zeste.ri/"
+            href="https://www.instagram.com/suis.ri/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-block text-center py-3 px-6 bg-[#2144c0] text-white font-semibold rounded-full shadow-md hover:opacity-90 transition-opacity duration-200"
@@ -40,7 +40,7 @@ export default function HomePage() {
           </a>
 
           <a
-            href="https://www.tiktok.com/@zeste.ri"
+            href="https://www.tiktok.com/@suis.ri"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-block text-center py-3 px-6 bg-[#2144c0] text-white font-semibold rounded-full shadow-md hover:opacity-90 transition-opacity duration-200"
