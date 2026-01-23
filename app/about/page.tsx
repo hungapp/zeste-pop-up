@@ -8,7 +8,7 @@ export default function AboutPage() {
       <header className="text-center pt-8 pb-4 px-4">
         <Link href="/">
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Suis logo"
             width={140}
             height={84}
