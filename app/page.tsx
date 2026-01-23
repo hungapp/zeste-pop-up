@@ -9,7 +9,7 @@ export default function HomePage() {
         {/* Logo */}
         <div className="mb-6">
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Suis logo"
             width={200}
             height={120}
