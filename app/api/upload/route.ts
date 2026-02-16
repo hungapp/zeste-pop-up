@@ -8,8 +8,24 @@ export async function POST(req: NextRequest) {
   try {
     // Check authentication
     const session = await auth();
-    if (!session || !session.accessToken) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+    console.log("Upload API - Session check:", {
+      hasSession: !!session,
+      hasUser: !!session?.user,
+      hasAccessToken: !!session?.accessToken,
+      email: session?.user?.email,
+    });
+
+    if (!session) {
+      console.error("Upload API - No session found");
+      return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+    }
+
+    if (!session.accessToken) {
+      console.error("Upload API - No access token in session");
+      return NextResponse.json({
+        error: "Missing access token. Please sign out and sign in again."
+      }, { status: 401 });
     }
 
     const formData = await req.formData();
@@ -29,11 +45,15 @@ export async function POST(req: NextRequest) {
 
     // Upload to Google Drive
     const fileName = `${menuType}_menu_${Date.now()}.jpg`;
+    console.log("Upload API - Uploading to Drive:", { fileName, fileSize: file.size });
+
     const result = await uploadToDrive(
       session.accessToken,
       file,
       fileName
     );
+
+    console.log("Upload API - Drive upload successful:", { fileId: result.fileId });
 
     // Update menu config
     const configPath = path.join(process.cwd(), "lib", "menu-config.json");
@@ -50,10 +70,19 @@ export async function POST(req: NextRequest) {
       url: result.publicUrl,
       fileId: result.fileId,
     });
-  } catch (error) {
-    console.error("Upload error:", error);
+  } catch (error: any) {
+    console.error("Upload error:", {
+      message: error.message,
+      stack: error.stack,
+      response: error.response?.data,
+      status: error.response?.status,
+    });
     return NextResponse.json(
-      { error: "Failed to upload file" },
+      {
+        error: "Failed to upload file",
+        details: error.message,
+        hint: "Check Vercel runtime logs for details"
+      },
       { status: 500 }
     );
   }
