@@ -1,7 +1,17 @@
 import Image from "next/image"
 import Link from "next/link"
+import fs from "fs/promises"
+import path from "path"
 
-export default function MenuPage() {
+async function getMenuConfig() {
+  const configPath = path.join(process.cwd(), "lib", "menu-config.json")
+  const configData = await fs.readFile(configPath, "utf-8")
+  return JSON.parse(configData)
+}
+
+export default async function MenuPage() {
+  const menuConfig = await getMenuConfig()
+
   return (
     <div className="min-h-screen bg-[#fefdf9] text-[#2f2f2f]">
       {/* Header */}
@@ -23,20 +33,22 @@ export default function MenuPage() {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start md:gap-8 items-center">
           <div className="w-full md:max-w-[480px] mb-6 md:mb-0">
             <Image
-              src="/dessert_menu.jpg"
+              src={menuConfig.dessertMenu}
               alt="Dessert Menu"
               width={480}
               height={640}
               className="w-full h-auto rounded-xl shadow-lg"
+              unoptimized
             />
           </div>
           <div className="w-full md:max-w-[480px]">
             <Image
-              src="/drink_menu.jpg"
+              src={menuConfig.drinkMenu}
               alt="Drink Menu"
               width={480}
               height={640}
               className="w-full h-auto rounded-xl shadow-lg"
+              unoptimized
             />
           </div>
         </div>
