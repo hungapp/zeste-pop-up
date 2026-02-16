@@ -18,6 +18,8 @@ yarn-error.log*
 
 # env files
 .env*
+# but keep the example file
+!.env.local.example
 
 # vercel
 .vercel
@@ -25,3 +27,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Lock files (keep only package-lock.json)
+pnpm-lock.yaml
+yarn.lock
