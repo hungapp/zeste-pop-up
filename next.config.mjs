@@ -23,10 +23,6 @@ const nextConfig = {
       },
     ],
   },
-  // Allow API routes to return large images
-  api: {
-    responseLimit: '10mb',
-  },
 }
 
 export default nextConfig
