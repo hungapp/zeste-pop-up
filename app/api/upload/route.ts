@@ -1,8 +1,6 @@
 import { auth } from "@/lib/auth";
 import { uploadToDrive } from "@/lib/drive";
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
 
 export async function POST(req: NextRequest) {
   try {
@@ -55,16 +53,7 @@ export async function POST(req: NextRequest) {
 
     console.log("Upload API - Drive upload successful:", { fileId: result.fileId });
 
-    // Update menu config
-    const configPath = path.join(process.cwd(), "lib", "menu-config.json");
-    const configData = JSON.parse(await fs.readFile(configPath, "utf-8"));
-
-    const configKey = menuType === "dessert" ? "dessertMenu" : "drinkMenu";
-    configData[configKey] = result.publicUrl;
-    configData.lastUpdated = new Date().toISOString();
-
-    await fs.writeFile(configPath, JSON.stringify(configData, null, 2));
-
+    // No config file update needed — the menu page reads directly from Drive
     return NextResponse.json({
       success: true,
       url: result.publicUrl,

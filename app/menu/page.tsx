@@ -1,13 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import fs from "fs/promises"
-import path from "path"
-
-async function getMenuConfig() {
-  const configPath = path.join(process.cwd(), "lib", "menu-config.json")
-  const configData = await fs.readFile(configPath, "utf-8")
-  return JSON.parse(configData)
-}
+import { getMenuConfig } from "@/lib/menu-store"
 
 export default async function MenuPage() {
   const menuConfig = await getMenuConfig()
