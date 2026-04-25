@@ -4,6 +4,8 @@ import Image from "next/image";
 import MenuUploadForm from "./upload-form";
 import { getMenuConfig } from "@/lib/menu-store";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPage() {
   const session = await auth();
 
@@ -86,16 +88,6 @@ export default async function AdminPage() {
               </div>
             </div>
           </div>
-          <p className="text-sm text-gray-500 mt-4">
-            Last updated:{" "}
-            {new Date(menuConfig.lastUpdated).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </p>
         </section>
 
         {/* Upload New Menu Section */}
