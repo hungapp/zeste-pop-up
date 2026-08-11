@@ -22,7 +22,7 @@ export default async function MenuPage() {
         <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Fresh every pop-up</p>
-            <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+            <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
               Our Pop-Up Menu
             </h1>
             <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
@@ -33,10 +33,10 @@ export default async function MenuPage() {
           <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 md:gap-10">
             <figure>
               <figcaption className="mb-3 flex items-baseline gap-3">
-                <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-blue">Desserts</span>
+                <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-red">Desserts</span>
                 <span className="flex-1 border-b border-dotted border-suis-stone" />
               </figcaption>
-              <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(33,68,192,0.08)]">
+              <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(114,28,39,0.08)]">
                 <Image
                   src={menuConfig.dessertMenu}
                   alt="Suis dessert menu"
@@ -50,10 +50,10 @@ export default async function MenuPage() {
 
             <figure>
               <figcaption className="mb-3 flex items-baseline gap-3">
-                <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-blue">Drinks</span>
+                <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-red">Drinks</span>
                 <span className="flex-1 border-b border-dotted border-suis-stone" />
               </figcaption>
-              <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(33,68,192,0.08)]">
+              <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(114,28,39,0.08)]">
                 <Image
                   src={menuConfig.drinkMenu}
                   alt="Suis drink menu"
@@ -69,7 +69,7 @@ export default async function MenuPage() {
           <div className="mt-12 text-center">
             <Link
               href="/"
-              className="inline-block rounded-full bg-suis-blue px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90"
+              className="inline-block rounded-full bg-suis-red px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
             >
               Back to Home
             </Link>

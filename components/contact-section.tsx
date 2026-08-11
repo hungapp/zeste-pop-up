@@ -23,7 +23,7 @@ const actions = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="bg-suis-sand">
+    <section id="contact" className="bg-suis-mist">
       <div className="mx-auto grid max-w-6xl items-stretch gap-0 md:grid-cols-2">
         <div className="relative min-h-[280px] md:min-h-[420px]">
           <Image
@@ -38,7 +38,7 @@ export default function ContactSection() {
 
         <div className="px-5 py-12 md:px-12 md:py-16">
           <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Stay in the loop</p>
-          <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+          <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
             Find Us Next
           </h2>
           <p className="mt-4 max-w-md text-[15px] leading-[1.85] text-suis-ink">
@@ -54,12 +54,12 @@ export default function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center justify-between gap-4 rounded-full px-6 py-3.5 transition-opacity hover:opacity-90 ${
-                  action.primary ? "bg-suis-blue text-white" : "bg-suis-yellow text-suis-ink"
+                  action.primary ? "bg-suis-red text-suis-cream" : "bg-suis-blue text-suis-red"
                 }`}
               >
                 <span className="font-display text-xs uppercase tracking-[0.14em]">{action.label}</span>
                 <span
-                  className={`hidden text-[12px] sm:block ${action.primary ? "text-white/75" : "text-suis-ink/65"}`}
+                  className={`hidden text-[12px] sm:block ${action.primary ? "text-suis-cream/75" : "text-suis-ink/65"}`}
                 >
                   {action.note}
                 </span>

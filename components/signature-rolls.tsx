@@ -80,7 +80,7 @@ export default function SignatureRolls() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">What we&apos;re known for</p>
-          <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+          <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
             Signature Rolls
           </h2>
           <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
@@ -116,7 +116,7 @@ export default function SignatureRolls() {
                 <span className="font-display text-5xl leading-none text-suis-stone md:text-6xl">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-3 font-display text-3xl uppercase tracking-[0.04em] text-suis-blue md:text-4xl">
+                <h3 className="mt-3 font-display text-3xl uppercase tracking-[0.04em] text-suis-red md:text-4xl">
                   {roll.title}
                 </h3>
                 <p className="mt-4 max-w-md text-[15px] leading-[1.85] text-suis-ink md:inline-block">

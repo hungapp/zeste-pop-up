@@ -24,18 +24,18 @@ const columns = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-suis-stone bg-suis-sand">
+    <footer className="border-t border-suis-stone bg-suis-mist">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.2fr] md:px-8">
         <div>
-          <Image src="/logo.png" alt="Suis" width={140} height={56} className="h-11 w-auto" />
+          <Image src="/logo.png" alt="Suis café & bakery" width={180} height={130} className="h-20 w-auto" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-suis-muted">
-            Sip &amp; Savour. Globally inspired desserts and drinks, popping up around Providence.
+            Brew. Bake. Brunch. Globally inspired desserts, drinks and brunch, popping up around Providence.
           </p>
         </div>
 
         {columns.map((col) => (
           <div key={col.title}>
-            <h4 className="font-display text-xs uppercase tracking-[0.2em] text-suis-blue">{col.title}</h4>
+            <h4 className="font-display text-xs uppercase tracking-[0.2em] text-suis-red">{col.title}</h4>
             <ul className="mt-4 space-y-2.5">
               {col.items.map((item) => (
                 <li key={item.label}>
@@ -44,7 +44,7 @@ export default function SiteFooter() {
                     {...("external" in item && item.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="text-sm text-suis-ink transition-colors hover:text-suis-blue"
+                    className="text-sm text-suis-ink transition-colors hover:text-suis-red"
                   >
                     {item.label}
                   </a>
@@ -55,7 +55,7 @@ export default function SiteFooter() {
         ))}
 
         <div>
-          <h4 className="font-display text-xs uppercase tracking-[0.2em] text-suis-blue">Find Us</h4>
+          <h4 className="font-display text-xs uppercase tracking-[0.2em] text-suis-red">Find Us</h4>
           <p className="mt-4 text-sm leading-relaxed text-suis-ink">
             Providence, Rhode Island
             <br />

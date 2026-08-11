@@ -55,7 +55,7 @@ export default function CareersPage() {
         <section className="mx-auto max-w-6xl px-5 pt-12 md:px-8 md:pt-16">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Join the team</p>
-            <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+            <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
               Job Opportunities
             </h1>
             <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
@@ -64,7 +64,7 @@ export default function CareersPage() {
             </p>
             <a
               href={APPLY_URL}
-              className="mt-7 inline-block rounded-full bg-suis-blue px-8 py-3.5 font-display text-xs uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90"
+              className="mt-7 inline-block rounded-full bg-suis-red px-8 py-3.5 font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
             >
               Apply Here
             </a>
@@ -85,7 +85,7 @@ export default function CareersPage() {
         {/* Open roles */}
         <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
           <div className="flex items-baseline gap-4">
-            <h2 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-blue md:text-3xl">
+            <h2 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
               Open Roles
             </h2>
             <span className="flex-1 border-b border-dotted border-suis-stone" />
@@ -108,14 +108,14 @@ export default function CareersPage() {
                   <div className="flex shrink-0 flex-wrap items-center gap-3">
                     <a
                       href={role.href}
-                      className="inline-flex items-center gap-2 rounded-full border border-suis-blue/30 px-5 py-2.5 font-display text-[11px] uppercase tracking-[0.14em] text-suis-blue transition-colors hover:bg-suis-blue hover:text-white"
+                      className="inline-flex items-center gap-2 rounded-full border border-suis-red/30 px-5 py-2.5 font-display text-[11px] uppercase tracking-[0.14em] text-suis-red transition-colors hover:bg-suis-red hover:text-suis-cream"
                     >
                       <FileText className="h-3.5 w-3.5" strokeWidth={1.6} />
                       {role.title} JD
                     </a>
                     <a
                       href={APPLY_URL}
-                      className="rounded-full bg-suis-yellow px-5 py-2.5 font-display text-[11px] uppercase tracking-[0.14em] text-suis-ink transition-opacity hover:opacity-90"
+                      className="rounded-full bg-suis-blue px-5 py-2.5 font-display text-[11px] uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
                     >
                       Apply
                     </a>
@@ -127,7 +127,7 @@ export default function CareersPage() {
         </section>
 
         {/* Closing CTA */}
-        <section className="bg-suis-sand">
+        <section className="bg-suis-mist">
           <div className="mx-auto grid max-w-6xl items-stretch md:grid-cols-2">
             <div className="relative min-h-[260px] md:min-h-[400px]">
               <Image
@@ -141,7 +141,7 @@ export default function CareersPage() {
             </div>
             <div className="px-5 py-12 md:px-12 md:py-16">
               <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Don&apos;t see a fit?</p>
-              <h2 className="mt-2 font-display text-3xl uppercase tracking-[0.04em] text-suis-blue md:text-4xl">
+              <h2 className="mt-2 font-display text-3xl uppercase tracking-[0.04em] text-suis-red md:text-4xl">
                 Tell Us Anyway
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-[1.85] text-suis-ink">
@@ -151,13 +151,13 @@ export default function CareersPage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href={APPLY_URL}
-                  className="rounded-full bg-suis-blue px-7 py-3 text-center font-display text-xs uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90"
+                  className="rounded-full bg-suis-red px-7 py-3 text-center font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
                 >
                   Apply Here
                 </a>
                 <Link
                   href="/"
-                  className="rounded-full bg-suis-yellow px-7 py-3 text-center font-display text-xs uppercase tracking-[0.14em] text-suis-ink transition-opacity hover:opacity-90"
+                  className="rounded-full bg-suis-blue px-7 py-3 text-center font-display text-xs uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
                 >
                   Back to Home
                 </Link>

@@ -28,7 +28,7 @@ export default function AboutPage() {
         <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">The team</p>
-            <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+            <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
               Who Are the Zesties?
             </h1>
             <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
@@ -39,7 +39,7 @@ export default function AboutPage() {
 
           <div className="mt-14 grid items-center gap-10 md:grid-cols-[minmax(0,420px)_1fr] md:gap-16">
             <div className="relative mx-auto w-full max-w-[340px]">
-              <div className="absolute -left-3 -top-3 h-full w-full rounded-full border border-suis-blue/25" />
+              <div className="absolute -left-3 -top-3 h-full w-full rounded-full border border-suis-red/25" />
               <div className="relative aspect-square overflow-hidden rounded-full">
                 <Image
                   src="/trang_ritu.jpg"
@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div className="space-y-8">
               {team.map((member) => (
                 <div key={member.name}>
-                  <h2 className="font-display text-2xl uppercase tracking-[0.04em] text-suis-blue">{member.name}</h2>
+                  <h2 className="font-display text-2xl uppercase tracking-[0.04em] text-suis-red">{member.name}</h2>
                   <p className="mt-3 max-w-xl text-[15px] leading-[1.85] text-suis-ink">{member.body}</p>
                 </div>
               ))}
@@ -83,7 +83,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-16 border-t border-suis-stone pt-12 text-center">
-            <h2 className="font-display text-3xl uppercase tracking-[0.04em] text-suis-blue md:text-4xl">
+            <h2 className="font-display text-3xl uppercase tracking-[0.04em] text-suis-red md:text-4xl">
               Our Mission
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-[1.85] text-suis-ink">
@@ -93,13 +93,13 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
                 href="/"
-                className="rounded-full bg-suis-blue px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90"
+                className="rounded-full bg-suis-red px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
               >
                 Back to Home
               </Link>
               <Link
                 href="/menu"
-                className="rounded-full bg-suis-yellow px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-ink transition-opacity hover:opacity-90"
+                className="rounded-full bg-suis-blue px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
               >
                 View Our Menu
               </Link>

@@ -16,14 +16,15 @@ const config: Config = {
   		},
   		colors: {
   			suis: {
-  				blue: '#2144c0',
-  				'blue-dark': '#17307f',
-  				yellow: '#f5c84d',
-  				cream: '#fefdf9',
-  				sand: '#f4f1e8',
-  				stone: '#e8e3d5',
-  				ink: '#2f2f2f',
-  				muted: '#6b6b6b'
+  				red: '#721c27',
+  				'red-dark': '#551017',
+  				blue: '#bdd9f0',
+  				'blue-deep': '#7fadd4',
+  				cream: '#fffdf7',
+  				mist: '#eef5fb',
+  				stone: '#e6ded2',
+  				ink: '#2b2422',
+  				muted: '#7a6f6b'
   			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

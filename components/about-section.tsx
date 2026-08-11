@@ -37,7 +37,7 @@ export default function AboutSection() {
         <div className="grid items-center gap-10 md:grid-cols-[minmax(0,420px)_1fr] md:gap-16">
           {/* Circular portrait with offset ring, echoing the reference */}
           <div className="relative mx-auto w-full max-w-[320px] md:max-w-[380px]">
-            <div className="absolute -left-3 -top-3 h-full w-full rounded-full border border-suis-blue/25" />
+            <div className="absolute -left-3 -top-3 h-full w-full rounded-full border border-suis-red/25" />
             <div className="relative aspect-square overflow-hidden rounded-full">
               <Image
                 src="/trang_ritu.jpg"
@@ -51,7 +51,7 @@ export default function AboutSection() {
 
           <div>
             <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Who we are</p>
-            <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+            <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
               About Us
             </h2>
             <p className="mt-5 max-w-xl text-[15px] leading-[1.85] text-suis-ink">
@@ -66,7 +66,7 @@ export default function AboutSection() {
             </p>
             <a
               href="#rolls"
-              className="mt-7 inline-block rounded-full bg-suis-yellow px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-ink transition-opacity hover:opacity-90"
+              className="mt-7 inline-block rounded-full bg-suis-blue px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
             >
               Meet the Rolls
             </a>
@@ -77,7 +77,7 @@ export default function AboutSection() {
         <div className="mt-16 grid gap-10 border-t border-suis-stone pt-12 sm:grid-cols-2 md:mt-20 md:grid-cols-4">
           {features.map((f) => (
             <div key={f.title} className="text-center">
-              <f.icon className="mx-auto h-7 w-7 text-suis-blue" strokeWidth={1.4} />
+              <f.icon className="mx-auto h-7 w-7 text-suis-red" strokeWidth={1.4} />
               <h3 className="mt-4 font-display text-base uppercase tracking-[0.1em] text-suis-ink">{f.title}</h3>
               <p className="mt-2 text-[13px] leading-relaxed text-suis-muted">{f.body}</p>
             </div>

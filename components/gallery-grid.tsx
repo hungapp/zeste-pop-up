@@ -4,11 +4,11 @@ const tiles = [
   { src: "/roll_dubai.jpg", alt: "Dubai pistachio roll" },
   { src: "/space_dining.jpg", alt: "Communal table in the dining room" },
   { src: "/roll_matcha.jpg", alt: "Matcha roll" },
-  { src: "/old_friends.jpeg", alt: "Friends at a Suis pop-up" },
+  { src: "/space_counter.jpg", alt: "The counter and open kitchen" },
   { src: "/roll_mocha.jpg", alt: "Mocha roll" },
   { src: "/space_service.jpg", alt: "Pastry case and service counter" },
   { src: "/roll_strawberry.jpg", alt: "Strawberry roll" },
-  { src: "/young_friends.jpeg", alt: "Guests at a Suis pop-up" },
+  { src: "/dessert_menu.jpg", alt: "The Suis dessert menu board" },
   { src: "/roll_yuzu.jpg", alt: "Yuzu roll" },
   { src: "/space_kitchen.jpg", alt: "Open kitchen line" },
 ]
@@ -19,7 +19,7 @@ export default function GalleryGrid() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
           <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">From our pop-ups</p>
-          <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+          <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
             Gallery
           </h2>
         </div>
@@ -35,7 +35,7 @@ export default function GalleryGrid() {
                 loading="lazy"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-suis-blue/0 transition-colors duration-500 group-hover:bg-suis-blue/15" />
+              <div className="absolute inset-0 bg-suis-red/0 transition-colors duration-500 group-hover:bg-suis-red/15" />
             </div>
           ))}
         </div>

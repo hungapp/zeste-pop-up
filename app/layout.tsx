@@ -18,9 +18,9 @@ const oswald = Oswald({
 })
 
 export const metadata: Metadata = {
-  title: "Suis | Sip & Savour",
+  title: "Suis café & bakery | Brew. Bake. Brunch.",
   description:
-    "Delightful desserts and refreshing drinks at pop-up events around Providence.",
+    "Brew. Bake. Brunch. Globally inspired desserts, drinks and brunch, popping up around Providence.",
 }
 
 export default function RootLayout({
