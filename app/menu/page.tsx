@@ -1,6 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
+import SiteNav from "@/components/site-nav"
+import SiteFooter from "@/components/site-footer"
 import { getMenuConfig } from "@/lib/menu-store"
+
+export const metadata: Metadata = {
+  title: "Menu | Suis",
+  description: "The current Suis dessert and drink menu, updated every pop-up.",
+}
 
 export const revalidate = 60
 
@@ -8,56 +16,67 @@ export default async function MenuPage() {
   const menuConfig = await getMenuConfig()
 
   return (
-    <div className="min-h-screen bg-[#fefdf9] text-[#2f2f2f]">
-      {/* Header */}
-      <header className="text-center pt-8 pb-4 px-4">
-        <Link href="/">
-          <Image
-            src="/logo.png"
-            alt="Suis logo"
-            width={140}
-            height={84}
-            className="mx-auto max-w-[140px] w-full h-auto"
-          />
-        </Link>
-        <h1 className="mt-4 text-3xl md:text-4xl font-semibold text-[#2144c0]">Our Pop‑Up Menu</h1>
-      </header>
-
-      {/* Menu Images */}
-      <section className="w-[90%] max-w-[600px] md:max-w-[1080px] mx-auto px-0 py-4 pb-8">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start md:gap-8 items-center">
-          <div className="w-full md:max-w-[480px] mb-6 md:mb-0">
-            <Image
-              src={menuConfig.dessertMenu}
-              alt="Dessert Menu"
-              width={480}
-              height={640}
-              className="w-full h-auto rounded-xl shadow-lg"
-              unoptimized
-            />
+    <>
+      <SiteNav />
+      <main className="bg-suis-cream text-suis-ink">
+        <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Fresh every pop-up</p>
+            <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-blue md:text-5xl">
+              Our Pop-Up Menu
+            </h1>
+            <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
+              The board changes as the season does — this is always the current one.
+            </p>
           </div>
-          <div className="w-full md:max-w-[480px]">
-            <Image
-              src={menuConfig.drinkMenu}
-              alt="Drink Menu"
-              width={480}
-              height={640}
-              className="w-full h-auto rounded-xl shadow-lg"
-              unoptimized
-            />
-          </div>
-        </div>
-      </section>
 
-      {/* Back Link */}
-      <div className="text-center pb-8">
-        <Link
-          href="/"
-          className="inline-block py-2.5 px-6 bg-[#2144c0] text-white font-medium rounded-full shadow-md hover:opacity-90 transition-opacity duration-200"
-        >
-          Back to Home
-        </Link>
-      </div>
-    </div>
+          <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 md:gap-10">
+            <figure>
+              <figcaption className="mb-3 flex items-baseline gap-3">
+                <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-blue">Desserts</span>
+                <span className="flex-1 border-b border-dotted border-suis-stone" />
+              </figcaption>
+              <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(33,68,192,0.08)]">
+                <Image
+                  src={menuConfig.dessertMenu}
+                  alt="Suis dessert menu"
+                  width={480}
+                  height={640}
+                  className="h-auto w-full"
+                  unoptimized
+                />
+              </div>
+            </figure>
+
+            <figure>
+              <figcaption className="mb-3 flex items-baseline gap-3">
+                <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-blue">Drinks</span>
+                <span className="flex-1 border-b border-dotted border-suis-stone" />
+              </figcaption>
+              <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(33,68,192,0.08)]">
+                <Image
+                  src={menuConfig.drinkMenu}
+                  alt="Suis drink menu"
+                  width={480}
+                  height={640}
+                  className="h-auto w-full"
+                  unoptimized
+                />
+              </div>
+            </figure>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/"
+              className="inline-block rounded-full bg-suis-blue px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90"
+            >
+              Back to Home
+            </Link>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </>
   )
 }

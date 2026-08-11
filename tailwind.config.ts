@@ -1,7 +1,5 @@
 import type { Config } from "tailwindcss";
 
-// all in fixtures is set to tailwind v3 as interims solutions
-
 const config: Config = {
     darkMode: ["class"],
     content: [
@@ -12,7 +10,21 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			display: ['var(--font-display)', 'Impact', 'sans-serif'],
+  			body: ['var(--font-body)', 'system-ui', 'sans-serif']
+  		},
   		colors: {
+  			suis: {
+  				blue: '#2144c0',
+  				'blue-dark': '#17307f',
+  				yellow: '#f5c84d',
+  				cream: '#fefdf9',
+  				sand: '#f4f1e8',
+  				stone: '#e8e3d5',
+  				ink: '#2f2f2f',
+  				muted: '#6b6b6b'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -85,11 +97,22 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
+  			},
+  			'fade-up': {
+  				from: {
+  					opacity: '0',
+  					transform: 'translateY(24px)'
+  				},
+  				to: {
+  					opacity: '1',
+  					transform: 'translateY(0)'
+  				}
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'fade-up': 'fade-up 0.8s ease-out both'
   		}
   	}
   },

@@ -10,15 +10,15 @@
 
 @layer base {
   :root {
-    --background: #fefdf9;
+    --background: 48 71% 99%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: #2144c0;
+    --primary: 227 71% 44%;
     --primary-foreground: 0 0% 98%;
-    --secondary: #f5c84d;
+    --secondary: 44 89% 63%;
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
@@ -88,6 +88,10 @@
   body {
     margin: 0;
     color: var(--dark);
-    background: var(--background);
+    background: hsl(var(--background));
+  }
+  /* Keep anchored sections clear of the sticky nav */
+  section[id] {
+    scroll-margin-top: 5.5rem;
   }
 }
