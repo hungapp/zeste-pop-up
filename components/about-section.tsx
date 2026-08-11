@@ -65,10 +65,10 @@ export default function AboutSection() {
               neighbourhood something it hasn&apos;t tried yet.
             </p>
             <a
-              href="#rolls"
+              href="#signatures"
               className="mt-7 inline-block rounded-full bg-suis-blue px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
             >
-              Meet the Rolls
+              See Our Signatures
             </a>
           </div>
         </div>

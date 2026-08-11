@@ -1,7 +1,7 @@
 import SiteNav from "@/components/site-nav"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
-import SignatureRolls from "@/components/signature-rolls"
+import SignatureShowcase from "@/components/signature-showcase"
 import SpaceSection from "@/components/space-section"
 import MenuSection from "@/components/menu-section"
 import QuoteSection from "@/components/quote-section"
@@ -18,7 +18,7 @@ export default function HomePage() {
       <main className="bg-suis-cream text-suis-ink">
         <HeroSection />
         <AboutSection />
-        <SignatureRolls />
+        <SignatureShowcase />
         <SpaceSection />
         <MenuSection />
         <QuoteSection />

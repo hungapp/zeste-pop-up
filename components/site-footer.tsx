@@ -6,7 +6,7 @@ const columns = [
     items: [
       { label: "About Us", href: "/#about" },
       { label: "Meet the Zesties", href: "/about" },
-      { label: "Signature Rolls", href: "/#rolls" },
+      { label: "Our Signatures", href: "/#signatures" },
       { label: "Menu", href: "/#menu" },
       { label: "Gallery", href: "/#gallery" },
       { label: "Job Opportunities", href: "/careers" },

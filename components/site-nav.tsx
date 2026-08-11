@@ -6,9 +6,8 @@ import Link from "next/link"
 import { Menu, X, Instagram } from "lucide-react"
 
 const links = [
-  { label: "Home", href: "/#top" },
   { label: "About", href: "/#about" },
-  { label: "Rolls", href: "/#rolls" },
+  { label: "Signatures", href: "/#signatures" },
   { label: "Menu", href: "/#menu" },
   { label: "Space", href: "/#space" },
   { label: "Gallery", href: "/#gallery" },

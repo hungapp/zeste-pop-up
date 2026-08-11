@@ -4,11 +4,11 @@ const tiles = [
   { src: "/roll_dubai.jpg", alt: "Dubai pistachio roll" },
   { src: "/space_dining.jpg", alt: "Communal table in the dining room" },
   { src: "/roll_matcha.jpg", alt: "Matcha roll" },
-  { src: "/space_counter.jpg", alt: "The counter and open kitchen" },
+  { src: "/box_mango.jpg", alt: "Mango mini box cake" },
   { src: "/roll_mocha.jpg", alt: "Mocha roll" },
   { src: "/space_service.jpg", alt: "Pastry case and service counter" },
   { src: "/roll_strawberry.jpg", alt: "Strawberry roll" },
-  { src: "/dessert_menu.jpg", alt: "The Suis dessert menu board" },
+  { src: "/box_ube.jpg", alt: "Ube mini box cake" },
   { src: "/roll_yuzu.jpg", alt: "Yuzu roll" },
   { src: "/space_kitchen.jpg", alt: "Open kitchen line" },
 ]

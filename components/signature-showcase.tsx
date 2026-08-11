@@ -3,20 +3,49 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 
-interface Roll {
+interface Signature {
   id: number
   src: string
   alt: string
   title: string
+  kicker: string
   description: string
 }
 
-const rolls: Roll[] = [
+const signatures: Signature[] = [
+  {
+    id: 6,
+    src: "/box_mango.jpg",
+    alt: "Mango mini box cake with vanilla chiffon, coconut chantilly and fresh mango",
+    title: "Mango Box Cake",
+    kicker: "Mini Box Cake",
+    description:
+      "Vanilla chiffon soaked in mango-infused condensed milk, layered with coconut chantilly and crowned with fresh mangoes.",
+  },
+  {
+    id: 7,
+    src: "/box_thaitea.jpg",
+    alt: "Thai tea mandarin mini box cake with coconut chantilly and mandarin segments",
+    title: "Thai Tea Mandarin",
+    kicker: "Mini Box Cake",
+    description:
+      "Thai tea chiffon and steeped tea cream under a cloud of coconut chantilly, finished with bright mandarin segments.",
+  },
+  {
+    id: 8,
+    src: "/box_ube.jpg",
+    alt: "Ube mini box cake with ube halaya, coconut chantilly and toasted coconut",
+    title: "Ube Box Cake",
+    kicker: "Mini Box Cake",
+    description:
+      "Ube chiffon and rich ube halaya piped with coconut chantilly, scattered with toasted coconut.",
+  },
   {
     id: 2,
     src: "/roll_yuzu.jpg",
     alt: "Yuzu cream roll with yuzu pudding filling",
     title: "Yuzu Roll",
+    kicker: "Signature Roll",
     description:
       "Light, airy yuzu-infused sponge filled with tangy yuzu cream and silky yuzu pudding. A citrus lover's dream.",
   },
@@ -25,6 +54,7 @@ const rolls: Roll[] = [
     src: "/roll_matcha.jpg",
     alt: "Matcha cream roll with matcha pudding filling",
     title: "Matcha Roll",
+    kicker: "Signature Roll",
     description:
       "Premium matcha sponge with authentic Japanese matcha cream and smooth matcha pudding. Finished with a fresh blueberry.",
   },
@@ -33,6 +63,7 @@ const rolls: Roll[] = [
     src: "/roll_mocha.jpg",
     alt: "Mocha cream roll with chocolate pudding filling",
     title: "Mocha Roll",
+    kicker: "Signature Roll",
     description:
       "Decadent mocha sponge filled with rich coffee cream and velvety chocolate pudding, finished with a chocolate curl.",
   },
@@ -41,6 +72,7 @@ const rolls: Roll[] = [
     src: "/roll_strawberry.jpg",
     alt: "Strawberry cream roll with vanilla pudding filling",
     title: "Strawberry Roll",
+    kicker: "Signature Roll",
     description:
       "Classic vanilla sponge with fresh strawberry cream and creamy vanilla pudding. Topped with strawberries and whipped cream.",
   },
@@ -49,12 +81,13 @@ const rolls: Roll[] = [
     src: "/roll_dubai.jpg",
     alt: "Pistachio cream roll with kataifi pistachio filling",
     title: "Dubai Roll",
+    kicker: "Signature Roll",
     description:
       "Rich chocolate sponge wrapped around creamy pistachio filling with crunchy kataifi. Topped with a fresh cherry.",
   },
 ]
 
-export default function SignatureRolls() {
+export default function SignatureShowcase() {
   const [visible, setVisible] = useState<Set<number>>(new Set())
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -76,35 +109,35 @@ export default function SignatureRolls() {
   }, [])
 
   return (
-    <section id="rolls" className="bg-suis-cream py-16 md:py-24">
+    <section id="signatures" className="bg-suis-cream py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">What we&apos;re known for</p>
           <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
-            Signature Rolls
+            Our Signatures
           </h2>
           <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
-            Handcrafted with premium ingredients and a lot of patience. Each roll is a balance of sponge, cream and
-            texture — and the line-up rotates with the season.
+            Mini box cakes and handmade rolls, built in layers — chiffon, cream and fruit. Everything is made in small
+            batches and the line-up rotates with the season.
           </p>
         </div>
 
         <div className="mt-14 space-y-14 md:mt-20 md:space-y-24">
-          {rolls.map((roll, index) => (
+          {signatures.map((item, index) => (
             <div
-              key={roll.id}
+              key={item.id}
               ref={(el) => {
                 itemRefs.current[index] = el
               }}
-              data-id={roll.id}
+              data-id={item.id}
               className={`grid items-center gap-6 transition-all duration-700 ease-out md:grid-cols-2 md:gap-14 ${
-                visible.has(roll.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
             >
               <div className={`relative aspect-[4/5] overflow-hidden ${index % 2 === 1 ? "md:order-2" : ""}`}>
                 <Image
-                  src={roll.src}
-                  alt={roll.alt}
+                  src={item.src}
+                  alt={item.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
@@ -116,11 +149,14 @@ export default function SignatureRolls() {
                 <span className="font-display text-5xl leading-none text-suis-stone md:text-6xl">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-3 font-display text-3xl uppercase tracking-[0.04em] text-suis-red md:text-4xl">
-                  {roll.title}
+                <p className="mt-3 font-display text-[11px] uppercase tracking-[0.2em] text-suis-muted">
+                  {item.kicker}
+                </p>
+                <h3 className="mt-1.5 font-display text-3xl uppercase tracking-[0.04em] text-suis-red md:text-4xl">
+                  {item.title}
                 </h3>
                 <p className="mt-4 max-w-md text-[15px] leading-[1.85] text-suis-ink md:inline-block">
-                  {roll.description}
+                  {item.description}
                 </p>
               </div>
             </div>
