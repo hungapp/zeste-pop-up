@@ -56,11 +56,19 @@ export default function SiteFooter() {
 
         <div>
           <h4 className="font-display text-xs uppercase tracking-[0.2em] text-suis-red">Find Us</h4>
-          <p className="mt-4 text-sm leading-relaxed text-suis-ink">
-            Providence, Rhode Island
-            <br />
-            Pop-up locations announced on Instagram
-          </p>
+          <address className="mt-4 text-sm not-italic leading-relaxed text-suis-ink">
+            <a
+              href="https://maps.google.com/?q=286+Brook+St,+Providence,+RI+02906"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-suis-red"
+            >
+              286 Brook St
+              <br />
+              Providence, RI 02906
+            </a>
+          </address>
+          <p className="mt-3 text-sm leading-relaxed text-suis-muted">Opening soon &mdash; pop-ups until then</p>
         </div>
       </div>
 

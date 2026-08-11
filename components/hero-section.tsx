@@ -7,7 +7,7 @@ export default function HeroSection() {
         {/* Eyebrow strip, echoing the reference's thin utility bar */}
         <div className="mb-4 hidden items-center justify-between border-b border-suis-stone pb-3 text-[11px] uppercase tracking-[0.18em] text-suis-muted md:flex">
           <span>Caf&eacute; &amp; bakery</span>
-          <span>Providence, Rhode Island</span>
+          <span>286 Brook St, Providence RI</span>
           <span>Pop-up dates on Instagram</span>
         </div>
 
@@ -52,9 +52,9 @@ export default function HeroSection() {
                   <dd className="font-medium">Announced weekly</dd>
                 </div>
                 <div className="flex items-baseline gap-3">
-                  <dt className="w-24 shrink-0 text-suis-muted">Where</dt>
+                  <dt className="w-24 shrink-0 text-suis-muted">Shop</dt>
                   <dd className="flex-1 border-b border-dotted border-suis-stone" />
-                  <dd className="font-medium">Providence, RI</dd>
+                  <dd className="font-medium">286 Brook St</dd>
                 </div>
                 <div className="flex items-baseline gap-3">
                   <dt className="w-24 shrink-0 text-suis-muted">Pre-orders</dt>

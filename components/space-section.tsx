@@ -16,7 +16,9 @@ export default function SpaceSection() {
           </div>
 
           <div>
-            <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Coming soon</p>
+            <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">
+              Coming soon &mdash; 286 Brook St
+            </p>
             <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
               The Space
             </h2>
@@ -39,6 +41,15 @@ export default function SpaceSection() {
                 </div>
               ))}
             </dl>
+
+            <a
+              href="https://maps.google.com/?q=286+Brook+St,+Providence,+RI+02906"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-block rounded-full bg-suis-red px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
+            >
+              286 Brook St, Providence
+            </a>
           </div>
         </div>
 
