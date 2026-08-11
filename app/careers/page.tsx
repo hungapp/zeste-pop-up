@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { FileText } from "lucide-react"
+import { JOB_ROLES } from "@/lib/jd-roles"
 import SiteNav from "@/components/site-nav"
 import SiteFooter from "@/components/site-footer"
 
@@ -10,38 +11,6 @@ export const metadata: Metadata = {
   description: "Open roles at Suis — barista, baker, cook, prep cook and dishwasher positions in Providence, RI.",
 }
 
-const roles = [
-  {
-    title: "Barista",
-    type: "Full-time / Part-time",
-    summary: "Pull espresso, build our drink menu and set the tone at the counter.",
-    href: "https://drive.google.com/file/d/1xQJmrUbo6KU7X7fc1Zj47wtMmB42wdwk/view?usp=sharing",
-  },
-  {
-    title: "Baker",
-    type: "Full-time",
-    summary: "Early mornings on sponge, cream and lamination. Our rolls start with you.",
-    href: "https://drive.google.com/file/d/1ImQmZnrEgTpvl-x7_A6f2NY4uiX43KQ2/view?usp=sharing",
-  },
-  {
-    title: "Cook",
-    type: "Full-time",
-    summary: "Run the line for brunch service and help shape the savoury menu.",
-    href: "https://drive.google.com/file/d/1zs_rFdMrK2iOYhqC0fP9dj_xfXr4ZDXW/view?usp=sharing",
-  },
-  {
-    title: "Prep Cook",
-    type: "Full-time / Part-time",
-    summary: "Mise en place, fillings and daily prep that keeps service moving.",
-    href: "https://drive.google.com/file/d/1G-4jzxysozbsEOTcAcrM7wbGkxQX7GQP/view?usp=sharing",
-  },
-  {
-    title: "Dishwasher / Busser",
-    type: "Part-time",
-    summary: "Keep the room and the kitchen turning over. The backbone of the shift.",
-    href: "https://drive.google.com/file/d/1un_SG5jIxXXp5mzzyp_iV2yf1G8WyuP3/view?usp=sharing",
-  },
-]
 
 const APPLY_URL = "https://forms.gle/QcqYH8WLnAqdxY236"
 
@@ -91,12 +60,12 @@ export default function CareersPage() {
             </h2>
             <span className="flex-1 border-b border-dotted border-suis-stone" />
             <span className="font-display text-xs uppercase tracking-[0.16em] text-suis-muted">
-              {roles.length} positions
+              {JOB_ROLES.length} positions
             </span>
           </div>
 
           <ul className="mt-8 border-t border-suis-stone">
-            {roles.map((role) => (
+            {JOB_ROLES.map((role) => (
               <li key={role.title} className="border-b border-suis-stone">
                 <div className="flex flex-col gap-4 py-6 md:flex-row md:items-center md:gap-8">
                   <div className="md:w-64 md:shrink-0">
@@ -108,7 +77,7 @@ export default function CareersPage() {
 
                   <div className="flex shrink-0 flex-wrap items-center gap-3">
                     <a
-                      href={role.href}
+                      href={`/jd/${role.slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-full border border-suis-red/30 px-5 py-2.5 font-display text-[11px] uppercase tracking-[0.14em] text-suis-red transition-colors hover:bg-suis-red hover:text-suis-cream"

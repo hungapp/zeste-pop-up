@@ -1,7 +1,9 @@
 import { auth, signOut } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import { Suspense } from "react";
 import MenuUploadForm from "./upload-form";
+import JdClicksPanel from "./jd-clicks-panel";
 import { getMenuConfig } from "@/lib/menu-store";
 
 export const dynamic = "force-dynamic";
@@ -91,7 +93,7 @@ export default async function AdminPage() {
         </section>
 
         {/* Upload New Menu Section */}
-        <section>
+        <section className="mb-12">
           <h2 className="text-2xl font-semibold text-[#2144c0] mb-4">
             Upload New Menu
           </h2>
@@ -99,6 +101,25 @@ export default async function AdminPage() {
             <MenuUploadForm menuType="dessert" />
             <MenuUploadForm menuType="drink" />
           </div>
+        </section>
+
+        {/* Job Description Clicks */}
+        <section>
+          <h2 className="text-2xl font-semibold text-[#2144c0] mb-1">
+            Job Description Clicks
+          </h2>
+          <p className="text-sm text-gray-600 mb-4">
+            How many people opened each JD from the careers page.
+          </p>
+          <Suspense
+            fallback={
+              <div className="rounded-xl bg-white p-6 shadow-lg text-sm text-gray-500">
+                Loading click stats…
+              </div>
+            }
+          >
+            <JdClicksPanel />
+          </Suspense>
         </section>
       </main>
     </div>
