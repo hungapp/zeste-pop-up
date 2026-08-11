@@ -44,7 +44,7 @@ const roles = [
   },
 ]
 
-const APPLY_URL = "#" // TODO: replace with the application form link
+const APPLY_URL = "https://forms.gle/QcqYH8WLnAqdxY236"
 
 export default function CareersPage() {
   return (
@@ -64,6 +64,8 @@ export default function CareersPage() {
             </p>
             <a
               href={APPLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-7 inline-block rounded-full bg-suis-red px-8 py-3.5 font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
             >
               Apply Here
@@ -115,6 +117,8 @@ export default function CareersPage() {
                     </a>
                     <a
                       href={APPLY_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="rounded-full bg-suis-blue px-5 py-2.5 font-display text-[11px] uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
                     >
                       Apply
@@ -151,6 +155,8 @@ export default function CareersPage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full bg-suis-red px-7 py-3 text-center font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
                 >
                   Apply Here
