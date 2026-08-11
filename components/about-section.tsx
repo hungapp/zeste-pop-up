@@ -24,12 +24,6 @@ const features = [
   },
 ]
 
-const strip = [
-  { src: "/roll_dubai.jpg", alt: "Pistachio cream roll with kataifi filling" },
-  { src: "/roll_matcha.jpg", alt: "Matcha cream roll with matcha pudding" },
-  { src: "/roll_strawberry.jpg", alt: "Strawberry cream roll topped with fresh strawberries" },
-]
-
 export default function AboutSection() {
   return (
     <section id="about" className="bg-suis-cream py-16 md:py-24">
@@ -60,10 +54,6 @@ export default function AboutSection() {
               pop-up has grown into a rotating menu of handmade rolls, seasonal fillings, and drinks worth showing up
               for.
             </p>
-            <p className="mt-4 max-w-xl text-[15px] leading-[1.85] text-suis-ink">
-              We&apos;re Ritu, Trang, Hung and Phan Anh — the Zesties. Every pop-up is our chance to feed the
-              neighbourhood something it hasn&apos;t tried yet.
-            </p>
             <a
               href="#signatures"
               className="mt-7 inline-block rounded-full bg-suis-blue px-7 py-3 font-display text-xs uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
@@ -84,19 +74,16 @@ export default function AboutSection() {
           ))}
         </div>
 
-        {/* Three-up image strip */}
-        <div className="mt-14 grid gap-4 sm:grid-cols-3 md:mt-16">
-          {strip.map((img) => (
-            <div key={img.src} className="relative aspect-[4/5] overflow-hidden">
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-          ))}
+        {/* Wide shop photo */}
+        <div className="relative mt-14 aspect-[16/9] overflow-hidden md:mt-16 md:aspect-[16/7]">
+          <Image
+            src="/space_service.jpg"
+            alt="The Suis counter, pastry case and window seating"
+            fill
+            sizes="(max-width: 768px) 100vw, 1152px"
+            loading="lazy"
+            className="object-cover"
+          />
         </div>
       </div>
     </section>

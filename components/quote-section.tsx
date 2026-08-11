@@ -8,7 +8,7 @@ export default function QuoteSection() {
           built to create a small moment of joy in this community.
         </blockquote>
         <p className="mt-6 font-display text-xs uppercase tracking-[0.2em] text-suis-muted">
-          The Zesties &mdash; Ritu, Trang, Hung &amp; Phan Anh
+          Ritu, Trang, Hung &amp; Phan Anh
         </p>
       </div>
     </section>

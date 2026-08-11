@@ -5,7 +5,7 @@ import SiteNav from "@/components/site-nav"
 import SiteFooter from "@/components/site-footer"
 
 export const metadata: Metadata = {
-  title: "Meet the Zesties | Suis",
+  title: "Our Team | Suis",
   description: "The team behind Suis and the story of our Providence pop-ups.",
 }
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">The team</p>
             <h1 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
-              Who Are the Zesties?
+              Meet the Team
             </h1>
             <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
               At the heart of Suis is a small, experienced team united by one vision: bring a fresh, globally inspired

@@ -12,7 +12,7 @@ interface Signature {
   description: string
 }
 
-const signatures: Signature[] = [
+const boxCakes: Signature[] = [
   {
     id: 6,
     src: "/box_mango.jpg",
@@ -40,6 +40,9 @@ const signatures: Signature[] = [
     description:
       "Ube chiffon and rich ube halaya piped with coconut chantilly, scattered with toasted coconut.",
   },
+]
+
+const rolls: Signature[] = [
   {
     id: 2,
     src: "/roll_yuzu.jpg",
@@ -122,8 +125,9 @@ export default function SignatureShowcase() {
           </p>
         </div>
 
+        {/* Mini box cakes — alternating full-width rows */}
         <div className="mt-14 space-y-14 md:mt-20 md:space-y-24">
-          {signatures.map((item, index) => (
+          {boxCakes.map((item, index) => (
             <div
               key={item.id}
               ref={(el) => {
@@ -161,6 +165,47 @@ export default function SignatureShowcase() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Signature rolls — compact two-up grid */}
+        <div className="mt-16 border-t border-suis-stone pt-12 md:mt-24 md:pt-16">
+          <div className="flex items-baseline gap-4">
+            <h3 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
+              Signature Rolls
+            </h3>
+            <span className="flex-1 border-b border-dotted border-suis-stone" />
+            <span className="font-display text-xs uppercase tracking-[0.16em] text-suis-muted">
+              {rolls.length} flavours
+            </span>
+          </div>
+
+          <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2">
+            {rolls.map((item, index) => (
+              <div
+                key={item.id}
+                ref={(el) => {
+                  itemRefs.current[boxCakes.length + index] = el
+                }}
+                data-id={item.id}
+                className={`transition-all duration-700 ease-out ${
+                  visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                }`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    loading="lazy"
+                    className="object-cover"
+                  />
+                </div>
+                <h4 className="mt-4 font-display text-xl uppercase tracking-[0.04em] text-suis-red">{item.title}</h4>
+                <p className="mt-2 text-[14px] leading-[1.75] text-suis-ink">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
