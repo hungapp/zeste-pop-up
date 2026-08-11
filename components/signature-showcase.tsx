@@ -79,15 +79,12 @@ const rolls: Signature[] = [
     description:
       "Classic vanilla sponge with fresh strawberry cream and creamy vanilla pudding. Topped with strawberries and whipped cream.",
   },
-  {
-    id: 1,
-    src: "/roll_dubai.jpg",
-    alt: "Pistachio cream roll with kataifi pistachio filling",
-    title: "Dubai Roll",
-    kicker: "Signature Roll",
-    description:
-      "Rich chocolate sponge wrapped around creamy pistachio filling with crunchy kataifi. Topped with a fresh cherry.",
-  },
+]
+
+const saltBreads = [
+  { id: 9, src: "/bread_plain.jpg", alt: "Plain salt bread" },
+  { id: 10, src: "/bread_garlic.jpg", alt: "Garlic cream cheese salt bread" },
+  { id: 11, src: "/bread_applepie.jpg", alt: "Apple pie salt bread" },
 ]
 
 export default function SignatureShowcase() {
@@ -120,8 +117,8 @@ export default function SignatureShowcase() {
             Our Signatures
           </h2>
           <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
-            Mini box cakes and handmade rolls, built in layers — chiffon, cream and fruit. Everything is made in small
-            batches and the line-up rotates with the season.
+            Mini box cakes, handmade rolls and salt breads, built in layers — chiffon, cream and fruit. Everything is
+            made in small batches and the line-up rotates with the season.
           </p>
         </div>
 
@@ -203,6 +200,47 @@ export default function SignatureShowcase() {
                 </div>
                 <h4 className="mt-4 font-display text-xl uppercase tracking-[0.04em] text-suis-red">{item.title}</h4>
                 <p className="mt-2 text-[14px] leading-[1.75] text-suis-ink">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Salt breads — three-up grid, names live in the artwork */}
+        <div className="mt-16 border-t border-suis-stone pt-12 md:mt-24 md:pt-16">
+          <div className="flex items-baseline gap-4">
+            <h3 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
+              Salt Breads
+            </h3>
+            <span className="flex-1 border-b border-dotted border-suis-stone" />
+            <span className="font-display text-xs uppercase tracking-[0.16em] text-suis-muted">
+              {saltBreads.length} kinds
+            </span>
+          </div>
+
+          <p className="mt-4 max-w-xl text-[15px] leading-[1.85] text-suis-ink">
+            Buttery, salt-flecked rolls baked fresh through the day — served plain, or split and filled.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3 md:gap-6">
+            {saltBreads.map((item, index) => (
+              <div
+                key={item.id}
+                ref={(el) => {
+                  itemRefs.current[boxCakes.length + rolls.length + index] = el
+                }}
+                data-id={item.id}
+                className={`relative aspect-[9/10] overflow-hidden transition-all duration-700 ease-out ${
+                  visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                }`}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  loading="lazy"
+                  className="object-cover"
+                />
               </div>
             ))}
           </div>

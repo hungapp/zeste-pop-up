@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 const tiles = [
-  { src: "/roll_dubai.jpg", alt: "Dubai pistachio roll" },
+  { src: "/bread_garlic.jpg", alt: "Garlic cream cheese salt bread" },
   { src: "/space_dining.jpg", alt: "Communal table in the dining room" },
   { src: "/roll_matcha.jpg", alt: "Matcha roll" },
   { src: "/box_mango.jpg", alt: "Mango mini box cake" },
