@@ -10,37 +10,36 @@ export const metadata: Metadata = {
   description: "Open roles at Suis — barista, baker, cook, prep cook and dishwasher positions in Providence, RI.",
 }
 
-// TODO: replace placeholder hrefs with links to the real job descriptions
 const roles = [
   {
     title: "Barista",
     type: "Full-time / Part-time",
     summary: "Pull espresso, build our drink menu and set the tone at the counter.",
-    href: "#",
+    href: "https://drive.google.com/file/d/1xQJmrUbo6KU7X7fc1Zj47wtMmB42wdwk/view?usp=sharing",
   },
   {
     title: "Baker",
     type: "Full-time",
     summary: "Early mornings on sponge, cream and lamination. Our rolls start with you.",
-    href: "#",
+    href: "https://drive.google.com/file/d/1ImQmZnrEgTpvl-x7_A6f2NY4uiX43KQ2/view?usp=sharing",
   },
   {
     title: "Cook",
     type: "Full-time",
     summary: "Run the line for brunch service and help shape the savoury menu.",
-    href: "#",
+    href: "https://drive.google.com/file/d/1zs_rFdMrK2iOYhqC0fP9dj_xfXr4ZDXW/view?usp=sharing",
   },
   {
     title: "Prep Cook",
     type: "Full-time / Part-time",
     summary: "Mise en place, fillings and daily prep that keeps service moving.",
-    href: "#",
+    href: "https://drive.google.com/file/d/1G-4jzxysozbsEOTcAcrM7wbGkxQX7GQP/view?usp=sharing",
   },
   {
     title: "Dishwasher / Busser",
     type: "Part-time",
     summary: "Keep the room and the kitchen turning over. The backbone of the shift.",
-    href: "#",
+    href: "https://drive.google.com/file/d/1un_SG5jIxXXp5mzzyp_iV2yf1G8WyuP3/view?usp=sharing",
   },
 ]
 
@@ -110,6 +109,8 @@ export default function CareersPage() {
                   <div className="flex shrink-0 flex-wrap items-center gap-3">
                     <a
                       href={role.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-full border border-suis-red/30 px-5 py-2.5 font-display text-[11px] uppercase tracking-[0.14em] text-suis-red transition-colors hover:bg-suis-red hover:text-suis-cream"
                     >
                       <FileText className="h-3.5 w-3.5" strokeWidth={1.6} />
