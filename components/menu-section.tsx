@@ -25,7 +25,7 @@ export default async function MenuSection() {
               <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-red">Desserts</span>
               <span className="flex-1 border-b border-dotted border-suis-stone" />
             </figcaption>
-            <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(114,28,39,0.08)]">
+            <div className="overflow-hidden rounded-2xl bg-white p-3 shadow-[0_10px_30px_rgba(114,28,39,0.08)]">
               <Image
                 src={menuConfig.dessertMenu}
                 alt="Suis dessert menu"
@@ -42,7 +42,7 @@ export default async function MenuSection() {
               <span className="font-display text-sm uppercase tracking-[0.18em] text-suis-red">Drinks</span>
               <span className="flex-1 border-b border-dotted border-suis-stone" />
             </figcaption>
-            <div className="overflow-hidden bg-white p-3 shadow-[0_10px_30px_rgba(114,28,39,0.08)]">
+            <div className="overflow-hidden rounded-2xl bg-white p-3 shadow-[0_10px_30px_rgba(114,28,39,0.08)]">
               <Image
                 src={menuConfig.drinkMenu}
                 alt="Suis drink menu"

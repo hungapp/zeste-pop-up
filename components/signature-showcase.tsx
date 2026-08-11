@@ -85,6 +85,7 @@ const saltBreads = [
   { id: 9, src: "/bread_plain.jpg", alt: "Plain salt bread" },
   { id: 10, src: "/bread_garlic.jpg", alt: "Garlic cream cheese salt bread" },
   { id: 11, src: "/bread_applepie.jpg", alt: "Apple pie salt bread" },
+  { id: 12, src: "/bread_ube.jpg", alt: "Ube salt bread" },
 ]
 
 export default function SignatureShowcase() {
@@ -147,7 +148,7 @@ export default function SignatureShowcase() {
                 visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
             >
-              <div className={`relative aspect-[4/5] overflow-hidden ${index % 2 === 1 ? "md:order-2" : ""}`}>
+              <div className={`relative overflow-hidden rounded-2xl aspect-[4/5] ${index % 2 === 1 ? "md:order-2" : ""}`}>
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -192,7 +193,7 @@ export default function SignatureShowcase() {
             Buttery, salt-flecked rolls baked fresh through the day — served plain, or split and filled.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-3 md:gap-6">
+          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {saltBreads.map((item, index) => (
               <div
                 key={item.id}
@@ -200,7 +201,7 @@ export default function SignatureShowcase() {
                   itemRefs.current[boxCakes.length + index] = el
                 }}
                 data-id={item.id}
-                className={`relative aspect-[9/10] overflow-hidden transition-all duration-700 ease-out ${
+                className={`relative overflow-hidden rounded-2xl aspect-[9/10] transition-all duration-700 ease-out ${
                   visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                 }`}
               >
@@ -208,7 +209,7 @@ export default function SignatureShowcase() {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   loading="lazy"
                   className="object-cover"
                 />
@@ -241,7 +242,7 @@ export default function SignatureShowcase() {
                   visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                 }`}
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
                   <Image
                     src={item.src}
                     alt={item.alt}

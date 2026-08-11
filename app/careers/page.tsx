@@ -72,7 +72,7 @@ export default function CareersPage() {
             </a>
           </div>
 
-          <div className="relative mt-12 aspect-[16/9] overflow-hidden md:aspect-[16/7]">
+          <div className="relative mt-12 aspect-[16/9] overflow-hidden rounded-3xl md:aspect-[16/7]">
             <Image
               src="/space_kitchen.jpg"
               alt="The Suis kitchen line and counter"
@@ -132,8 +132,8 @@ export default function CareersPage() {
 
         {/* Closing CTA */}
         <section className="bg-suis-mist">
-          <div className="mx-auto grid max-w-6xl items-stretch md:grid-cols-2">
-            <div className="relative min-h-[260px] md:min-h-[400px]">
+          <div className="mx-auto grid max-w-6xl items-stretch gap-6 px-5 py-12 md:grid-cols-2 md:gap-10 md:px-8 md:py-16">
+            <div className="relative min-h-[260px] overflow-hidden rounded-2xl md:min-h-[400px]">
               <Image
                 src="/space_dining.jpg"
                 alt="The Suis dining room"
@@ -143,7 +143,7 @@ export default function CareersPage() {
                 className="object-cover"
               />
             </div>
-            <div className="px-5 py-12 md:px-12 md:py-16">
+            <div className="md:py-4">
               <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Don&apos;t see a fit?</p>
               <h2 className="mt-2 font-display text-3xl uppercase tracking-[0.04em] text-suis-red md:text-4xl">
                 Tell Us Anyway

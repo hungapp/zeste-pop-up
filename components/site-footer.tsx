@@ -69,6 +69,12 @@ export default function SiteFooter() {
             </a>
           </address>
           <p className="mt-3 text-sm leading-relaxed text-suis-muted">Opening soon &mdash; pop-ups until then</p>
+          <a
+            href="mailto:admin@myzeste.com"
+            className="mt-3 inline-block text-sm text-suis-ink transition-colors hover:text-suis-red"
+          >
+            admin@myzeste.com
+          </a>
         </div>
       </div>
 

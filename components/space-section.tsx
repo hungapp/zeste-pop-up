@@ -5,7 +5,7 @@ export default function SpaceSection() {
     <section id="space" className="bg-suis-mist py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14">
-          <div className="relative aspect-[4/3] overflow-hidden md:aspect-[4/3]">
+          <div className="relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-[4/3]">
             <Image
               src="/space_dining.jpg"
               alt="The Suis dining room with a long communal table and a window bar"
@@ -54,7 +54,7 @@ export default function SpaceSection() {
         </div>
 
         <div className="mt-6 grid gap-6 md:mt-10 md:grid-cols-2">
-          <div className="relative aspect-[16/10] overflow-hidden">
+          <div className="relative overflow-hidden rounded-2xl aspect-[16/10]">
             <Image
               src="/space_service.jpg"
               alt="Pastry case and service counter under a curved red soffit"
@@ -63,7 +63,7 @@ export default function SpaceSection() {
               className="object-cover"
             />
           </div>
-          <div className="relative aspect-[16/10] overflow-hidden">
+          <div className="relative overflow-hidden rounded-2xl aspect-[16/10]">
             <Image
               src="/space_kitchen.jpg"
               alt="Open kitchen line with terrazzo counter and banquette seating"

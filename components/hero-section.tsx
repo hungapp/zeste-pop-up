@@ -12,7 +12,7 @@ export default function HeroSection() {
         </div>
 
         <div className="relative">
-          <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[16/8]">
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl md:aspect-[16/8]">
             <Image
               src="/space_counter.jpg"
               alt="The Suis counter and open kitchen, with communal tables in the foreground"
@@ -25,7 +25,7 @@ export default function HeroSection() {
           </div>
 
           {/* Overlapping info cards */}
-          <div className="relative z-10 -mt-10 grid gap-px overflow-hidden bg-suis-stone shadow-[0_12px_40px_rgba(114,28,39,0.10)] sm:grid-cols-2 md:-mt-16 md:mx-auto md:w-[86%]">
+          <div className="relative z-10 -mt-10 grid gap-px overflow-hidden rounded-3xl bg-suis-stone shadow-[0_16px_50px_rgba(114,28,39,0.12)] sm:grid-cols-2 md:-mt-16 md:mx-auto md:w-[86%]">
             <div className="bg-suis-cream px-6 py-7 md:px-8 md:py-9">
               <h1 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
                 Brew. Bake. Brunch.

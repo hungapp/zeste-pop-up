@@ -26,7 +26,7 @@ export default function GalleryGrid() {
 
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 md:gap-3">
           {tiles.map((tile) => (
-            <div key={tile.src} className="group relative aspect-square overflow-hidden">
+            <div key={tile.src} className="group relative aspect-square overflow-hidden rounded-2xl">
               <Image
                 src={tile.src}
                 alt={tile.alt}

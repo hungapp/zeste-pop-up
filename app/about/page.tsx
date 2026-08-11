@@ -40,7 +40,7 @@ export default function AboutPage() {
           <div className="mt-14 grid items-center gap-10 md:grid-cols-[minmax(0,420px)_1fr] md:gap-16">
             <div className="relative mx-auto w-full max-w-[340px]">
               <div className="absolute -left-3 -top-3 h-full w-full rounded-full border border-suis-red/25" />
-              <div className="relative aspect-square overflow-hidden rounded-full">
+              <div className="relative overflow-hidden rounded-full aspect-square">
                 <Image
                   src="/trang_ritu.jpg"
                   alt="Trang and Ritu celebrating the second pop-up"
@@ -62,7 +62,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-14 grid gap-4 sm:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
               <Image
                 src="/young_friends.jpeg"
                 alt="Friends at a Suis pop-up"
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
               <Image
                 src="/old_friends.jpeg"
                 alt="Guests gathered at a Suis pop-up"

@@ -32,7 +32,7 @@ export default function AboutSection() {
           {/* Circular portrait with offset ring, echoing the reference */}
           <div className="relative mx-auto w-full max-w-[320px] md:max-w-[380px]">
             <div className="absolute -left-3 -top-3 h-full w-full rounded-full border border-suis-red/25" />
-            <div className="relative aspect-square overflow-hidden rounded-full">
+            <div className="relative overflow-hidden rounded-full aspect-square">
               <Image
                 src="/trang_ritu.jpg"
                 alt="Ritu and Trang at a Suis pop-up"
@@ -75,7 +75,7 @@ export default function AboutSection() {
         </div>
 
         {/* Wide shop photo */}
-        <div className="relative mt-14 aspect-[16/9] overflow-hidden md:mt-16 md:aspect-[16/7]">
+        <div className="relative mt-14 aspect-[16/9] overflow-hidden rounded-3xl md:mt-16 md:aspect-[16/7]">
           <Image
             src="/space_service.jpg"
             alt="The Suis counter, pastry case and window seating"

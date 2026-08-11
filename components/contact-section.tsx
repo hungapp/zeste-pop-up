@@ -19,13 +19,19 @@ const actions = [
     note: "Tell us what to make next",
     primary: false,
   },
+  {
+    label: "Email Us",
+    href: "mailto:admin@myzeste.com",
+    note: "admin@myzeste.com",
+    primary: false,
+  },
 ]
 
 export default function ContactSection() {
   return (
     <section id="contact" className="bg-suis-mist">
-      <div className="mx-auto grid max-w-6xl items-stretch gap-0 md:grid-cols-2">
-        <div className="relative min-h-[280px] md:min-h-[420px]">
+      <div className="mx-auto grid max-w-6xl items-stretch gap-6 px-5 py-12 md:grid-cols-2 md:gap-10 md:px-8 md:py-16">
+        <div className="relative min-h-[280px] overflow-hidden rounded-2xl md:min-h-[420px]">
           <Image
             src="/space_counter.jpg"
             alt="The Suis counter and dining room"
@@ -36,7 +42,7 @@ export default function ContactSection() {
           />
         </div>
 
-        <div className="px-5 py-12 md:px-12 md:py-16">
+        <div className="md:py-4">
           <p className="font-display text-xs uppercase tracking-[0.24em] text-suis-muted">Stay in the loop</p>
           <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.04em] text-suis-red md:text-5xl">
             Find Us Next
