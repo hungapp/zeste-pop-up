@@ -18,7 +18,7 @@ const boxCakes: Signature[] = [
     src: "/box_mango.jpg",
     alt: "Mango mini box cake with vanilla chiffon, coconut chantilly and fresh mango",
     title: "Mango Box Cake",
-    kicker: "Mini Box Cake",
+    kicker: "Mini Cake Box",
     description:
       "Vanilla chiffon soaked in mango-infused condensed milk, layered with coconut chantilly and crowned with fresh mangoes.",
   },
@@ -27,7 +27,7 @@ const boxCakes: Signature[] = [
     src: "/box_thaitea.jpg",
     alt: "Thai tea mandarin mini box cake with coconut chantilly and mandarin segments",
     title: "Thai Tea Mandarin",
-    kicker: "Mini Box Cake",
+    kicker: "Mini Cake Box",
     description:
       "Thai tea chiffon and steeped tea cream under a cloud of coconut chantilly, finished with bright mandarin segments.",
   },
@@ -36,7 +36,7 @@ const boxCakes: Signature[] = [
     src: "/box_ube.jpg",
     alt: "Ube mini box cake with ube halaya, coconut chantilly and toasted coconut",
     title: "Ube Box Cake",
-    kicker: "Mini Box Cake",
+    kicker: "Mini Cake Box",
     description:
       "Ube chiffon and rich ube halaya piped with coconut chantilly, scattered with toasted coconut.",
   },
@@ -48,7 +48,7 @@ const rolls: Signature[] = [
     src: "/roll_yuzu.jpg",
     alt: "Yuzu cream roll with yuzu pudding filling",
     title: "Yuzu Roll",
-    kicker: "Signature Roll",
+    kicker: "Japanese Swiss Roll",
     description:
       "Light, airy yuzu-infused sponge filled with tangy yuzu cream and silky yuzu pudding. A citrus lover's dream.",
   },
@@ -57,7 +57,7 @@ const rolls: Signature[] = [
     src: "/roll_matcha.jpg",
     alt: "Matcha cream roll with matcha pudding filling",
     title: "Matcha Roll",
-    kicker: "Signature Roll",
+    kicker: "Japanese Swiss Roll",
     description:
       "Premium matcha sponge with authentic Japanese matcha cream and smooth matcha pudding. Finished with a fresh blueberry.",
   },
@@ -66,7 +66,7 @@ const rolls: Signature[] = [
     src: "/roll_mocha.jpg",
     alt: "Mocha cream roll with chocolate pudding filling",
     title: "Mocha Roll",
-    kicker: "Signature Roll",
+    kicker: "Japanese Swiss Roll",
     description:
       "Decadent mocha sponge filled with rich coffee cream and velvety chocolate pudding, finished with a chocolate curl.",
   },
@@ -75,7 +75,7 @@ const rolls: Signature[] = [
     src: "/roll_strawberry.jpg",
     alt: "Strawberry cream roll with vanilla pudding filling",
     title: "Strawberry Roll",
-    kicker: "Signature Roll",
+    kicker: "Japanese Swiss Roll",
     description:
       "Classic vanilla sponge with fresh strawberry cream and creamy vanilla pudding. Topped with strawberries and whipped cream.",
   },
@@ -117,13 +117,25 @@ export default function SignatureShowcase() {
             Our Signatures
           </h2>
           <p className="mt-4 text-[15px] leading-[1.85] text-suis-ink">
-            Mini box cakes, handmade rolls and salt breads, built in layers — chiffon, cream and fruit. Everything is
-            made in small batches and the line-up rotates with the season.
+            Three things we make, all in small batches: mini cake boxes, Korean salt bread and Japanese Swiss rolls.
+            The line-up rotates with the season.
           </p>
         </div>
 
-        {/* Mini box cakes — alternating full-width rows */}
-        <div className="mt-14 space-y-14 md:mt-20 md:space-y-24">
+        {/* Mini cake boxes — alternating full-width rows */}
+        <div className="mt-14 md:mt-20">
+          <div className="flex items-baseline gap-4">
+            <h3 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
+              Mini Cake Box
+            </h3>
+            <span className="flex-1 border-b border-dotted border-suis-stone" />
+            <span className="font-display text-xs uppercase tracking-[0.16em] text-suis-muted">
+              {boxCakes.length} flavours
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-10 space-y-14 md:mt-14 md:space-y-24">
           {boxCakes.map((item, index) => (
             <div
               key={item.id}
@@ -164,11 +176,52 @@ export default function SignatureShowcase() {
           ))}
         </div>
 
-        {/* Signature rolls — compact two-up grid */}
+        {/* Salt breads — three-up grid, names live in the artwork */}
         <div className="mt-16 border-t border-suis-stone pt-12 md:mt-24 md:pt-16">
           <div className="flex items-baseline gap-4">
             <h3 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
-              Signature Rolls
+              Korean Salt Bread
+            </h3>
+            <span className="flex-1 border-b border-dotted border-suis-stone" />
+            <span className="font-display text-xs uppercase tracking-[0.16em] text-suis-muted">
+              {saltBreads.length} kinds
+            </span>
+          </div>
+
+          <p className="mt-4 max-w-xl text-[15px] leading-[1.85] text-suis-ink">
+            Buttery, salt-flecked rolls baked fresh through the day — served plain, or split and filled.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3 md:gap-6">
+            {saltBreads.map((item, index) => (
+              <div
+                key={item.id}
+                ref={(el) => {
+                  itemRefs.current[boxCakes.length + index] = el
+                }}
+                data-id={item.id}
+                className={`relative aspect-[9/10] overflow-hidden transition-all duration-700 ease-out ${
+                  visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                }`}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Japanese Swiss rolls — compact two-up grid */}
+        <div className="mt-16 border-t border-suis-stone pt-12 md:mt-24 md:pt-16">
+          <div className="flex items-baseline gap-4">
+            <h3 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
+              Japanese Swiss Rolls
             </h3>
             <span className="flex-1 border-b border-dotted border-suis-stone" />
             <span className="font-display text-xs uppercase tracking-[0.16em] text-suis-muted">
@@ -181,7 +234,7 @@ export default function SignatureShowcase() {
               <div
                 key={item.id}
                 ref={(el) => {
-                  itemRefs.current[boxCakes.length + index] = el
+                  itemRefs.current[boxCakes.length + saltBreads.length + index] = el
                 }}
                 data-id={item.id}
                 className={`transition-all duration-700 ease-out ${
@@ -205,46 +258,6 @@ export default function SignatureShowcase() {
           </div>
         </div>
 
-        {/* Salt breads — three-up grid, names live in the artwork */}
-        <div className="mt-16 border-t border-suis-stone pt-12 md:mt-24 md:pt-16">
-          <div className="flex items-baseline gap-4">
-            <h3 className="font-display text-2xl uppercase tracking-[0.06em] text-suis-red md:text-3xl">
-              Salt Breads
-            </h3>
-            <span className="flex-1 border-b border-dotted border-suis-stone" />
-            <span className="font-display text-xs uppercase tracking-[0.16em] text-suis-muted">
-              {saltBreads.length} kinds
-            </span>
-          </div>
-
-          <p className="mt-4 max-w-xl text-[15px] leading-[1.85] text-suis-ink">
-            Buttery, salt-flecked rolls baked fresh through the day — served plain, or split and filled.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-3 md:gap-6">
-            {saltBreads.map((item, index) => (
-              <div
-                key={item.id}
-                ref={(el) => {
-                  itemRefs.current[boxCakes.length + rolls.length + index] = el
-                }}
-                data-id={item.id}
-                className={`relative aspect-[9/10] overflow-hidden transition-all duration-700 ease-out ${
-                  visible.has(item.id) ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                }`}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  loading="lazy"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
