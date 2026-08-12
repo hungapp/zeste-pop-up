@@ -30,14 +30,6 @@ export default function CareersPage() {
               We&apos;re building the team for our first permanent space in Providence. If you care about hospitality
               and want a hand in shaping a new room from day one, we&apos;d like to meet you.
             </p>
-            <a
-              href={APPLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-block rounded-full bg-suis-red px-8 py-3.5 font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
-            >
-              Apply Here
-            </a>
           </div>
 
           <div className="relative mt-12 aspect-[16/9] overflow-hidden rounded-3xl md:aspect-[16/7]">
@@ -123,14 +115,6 @@ export default function CareersPage() {
                 we&apos;ll keep you in mind as we grow.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-suis-red px-7 py-3 text-center font-display text-xs uppercase tracking-[0.14em] text-suis-cream transition-opacity hover:opacity-90"
-                >
-                  Apply Here
-                </a>
                 <Link
                   href="/"
                   className="rounded-full bg-suis-blue px-7 py-3 text-center font-display text-xs uppercase tracking-[0.14em] text-suis-red transition-opacity hover:opacity-90"
