@@ -42,6 +42,8 @@ export interface JdClickStats {
   configured: boolean;
   counts: JdClickCount[];
   recent: JdClickEvent[];
+  /** Set when configured is false: exactly which env var is wrong */
+  configProblem?: string;
   error?: string;
 }
 
@@ -92,6 +94,39 @@ function getCredentials(): { client_email: string; private_key: string } | null 
 
 export function isClickTrackingConfigured(): boolean {
   return Boolean(getProjectId() && getCredentials());
+}
+
+/**
+ * Why tracking is switched off, in enough detail to fix it. "Not configured"
+ * on its own sends you hunting through three different possible causes.
+ */
+export function describeConfigProblem(): string | null {
+  const projectId = getProjectId();
+  const raw = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
+
+  if (!projectId && !raw) {
+    return "Neither FIRESTORE_PROJECT_ID nor GOOGLE_SERVICE_ACCOUNT_KEY is set.";
+  }
+
+  if (!projectId) {
+    return "FIRESTORE_PROJECT_ID is missing or empty.";
+  }
+
+  if (!raw) {
+    return "GOOGLE_SERVICE_ACCOUNT_KEY is missing or empty. If you built .env.local with jq, check that jq is actually installed — a missing jq writes an empty value with no error.";
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    const missing = ["client_email", "private_key"].filter((field) => !parsed[field]);
+    if (missing.length > 0) {
+      return `GOOGLE_SERVICE_ACCOUNT_KEY parsed as JSON but has no ${missing.join(" or ")}. Is it the whole service account key file?`;
+    }
+  } catch {
+    return `GOOGLE_SERVICE_ACCOUNT_KEY is not valid JSON (starts with "${raw.slice(0, 12)}…", ${raw.length} chars). It must be the entire key file on one line, with no surrounding quotes.`;
+  }
+
+  return null;
 }
 
 function base64url(input: string | Buffer): string {
@@ -286,7 +321,12 @@ export async function getJdClickStats(recentLimit = 25): Promise<JdClickStats> {
   const credentials = getCredentials();
 
   if (!projectId || !credentials) {
-    return { configured: false, counts: [], recent: [] };
+    return {
+      configured: false,
+      counts: [],
+      recent: [],
+      configProblem: describeConfigProblem() ?? undefined,
+    };
   }
 
   const token = await getAccessToken();

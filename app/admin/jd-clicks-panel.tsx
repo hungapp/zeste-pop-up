@@ -30,11 +30,17 @@ export default async function JdClicksPanel() {
     return (
       <div className="rounded-xl border border-amber-200 bg-amber-50 p-6">
         <h3 className="font-semibold text-amber-900">Click tracking not configured</h3>
-        <p className="mt-2 text-sm leading-relaxed text-amber-800">
-          Job description clicks are recorded in Firestore. To switch it on, set{" "}
+        {stats.configProblem && (
+          <p className="mt-2 rounded bg-amber-100 p-3 font-mono text-xs leading-relaxed text-amber-900">
+            {stats.configProblem}
+          </p>
+        )}
+        <p className="mt-3 text-sm leading-relaxed text-amber-800">
+          Job description clicks are recorded in Firestore. It needs{" "}
           <code className="rounded bg-amber-100 px-1">FIRESTORE_PROJECT_ID</code> and{" "}
-          <code className="rounded bg-amber-100 px-1">GOOGLE_SERVICE_ACCOUNT_KEY</code> in your environment. Until then
-          the JD links still work — they just aren&apos;t counted.
+          <code className="rounded bg-amber-100 px-1">GOOGLE_SERVICE_ACCOUNT_KEY</code> in the environment. Restart the
+          dev server after editing <code className="rounded bg-amber-100 px-1">.env.local</code> — Next only reads it at
+          boot. Until then the JD links still work, they just aren&apos;t counted.
         </p>
       </div>
     );
