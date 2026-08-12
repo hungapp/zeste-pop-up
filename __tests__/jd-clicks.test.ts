@@ -25,6 +25,7 @@ beforeEach(() => {
   jest.resetModules();
   calls = [];
 
+  delete process.env.FIRESTORE_DATABASE_ID;
   process.env.FIRESTORE_PROJECT_ID = PROJECT_ID;
   process.env.GOOGLE_SERVICE_ACCOUNT_KEY = JSON.stringify({
     client_email: "svc@suis-test.iam.gserviceaccount.com",
@@ -90,6 +91,46 @@ test("the counter write increments total", async () => {
     fieldPath: "total",
     increment: { integerValue: "1" },
   });
+});
+
+test("writes target the configured database, not (default)", async () => {
+  process.env.FIRESTORE_DATABASE_ID = "zeste-jd-db";
+  const { recordJdClick } = await import("@/lib/jd-clicks");
+  await recordJdClick({ slug: "barista", referrer: null, userAgent: "Chrome", ip: "1.2.3.4" });
+
+  const call = commitCall();
+  expect(call.url).toContain("/databases/zeste-jd-db/documents:commit");
+
+  const writes = call.body.writes as Array<{ update: { name: string } }>;
+  for (const write of writes) {
+    expect(write.update.name).toContain(`projects/${PROJECT_ID}/databases/zeste-jd-db/documents/`);
+    expect(write.update.name).not.toContain("(default)");
+  }
+});
+
+test("falls back to (default) when no database is configured", async () => {
+  delete process.env.FIRESTORE_DATABASE_ID;
+  const { recordJdClick } = await import("@/lib/jd-clicks");
+  await recordJdClick({ slug: "barista", referrer: null, userAgent: "Chrome", ip: "1.2.3.4" });
+
+  expect(commitCall().url).toContain("/databases/(default)/documents:commit");
+});
+
+test("a 404 read is reported, not silently treated as no clicks", async () => {
+  process.env.FIRESTORE_DATABASE_ID = "zeste-jd-db";
+  global.fetch = jest.fn(async (input: RequestInfo | URL) => {
+    if (String(input).includes("oauth2.googleapis.com")) {
+      return new Response(JSON.stringify({ access_token: "test-token", expires_in: 3600 }), { status: 200 });
+    }
+    return new Response(JSON.stringify({ error: { status: "NOT_FOUND" } }), { status: 404 });
+  }) as unknown as typeof fetch;
+
+  const { getJdClickStats } = await import("@/lib/jd-clicks");
+  const stats = await getJdClickStats();
+
+  expect(stats.configured).toBe(true);
+  expect(stats.error).toContain("zeste-jd-db");
+  expect(stats.counts).toHaveLength(0);
 });
 
 test("diagnostics report the raw status instead of swallowing a 404", async () => {

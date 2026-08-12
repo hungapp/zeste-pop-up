@@ -198,11 +198,20 @@ async function getAccessToken(): Promise<string | null> {
 }
 
 /**
+ * Firestore only calls the database "(default)" when you never named one.
+ * A named database 404s every request aimed at (default), and listDocuments
+ * reads that 404 as "no clicks yet".
+ */
+export function getDatabaseId(): string {
+  return process.env.FIRESTORE_DATABASE_ID || "(default)";
+}
+
+/**
  * Resource name prefix, as it must appear in a document's `name` field.
  * Not a URL: Firestore rejects a commit whose name starts with https://.
  */
 function documentsPath(projectId: string): string {
-  return `projects/${projectId}/databases/(default)/documents`;
+  return `projects/${projectId}/databases/${getDatabaseId()}/documents`;
 }
 
 /** The same thing as a REST endpoint, for fetch. */
@@ -284,6 +293,7 @@ export async function recordJdClick(input: JdClickInput): Promise<void> {
 
 export interface JdClickDiagnostics {
   projectId: string | null;
+  databaseId: string;
   configProblem: string | null;
   clientEmail: string | null;
   tokenOk: boolean;
@@ -308,6 +318,7 @@ export async function diagnoseJdClicks(): Promise<JdClickDiagnostics> {
 
   const result: JdClickDiagnostics = {
     projectId,
+    databaseId: getDatabaseId(),
     configProblem: describeConfigProblem(),
     clientEmail: credentials?.client_email ?? null,
     tokenOk: false,
@@ -380,8 +391,13 @@ async function listDocuments(
     cache: "no-store",
   });
 
-  // An empty collection 404s in some cases; treat that as "no data yet"
-  if (response.status === 404) return [];
+  // An existing but empty collection returns 200 with no documents, so a 404
+  // means the database or project is wrong — surface it instead of hiding it.
+  if (response.status === 404) {
+    throw new Error(
+      `Firestore database "${getDatabaseId()}" not found. Set FIRESTORE_DATABASE_ID if your database is not named (default).`,
+    );
+  }
   if (!response.ok) {
     throw new Error(`Firestore list ${collection} failed (${response.status}): ${await response.text()}`);
   }

@@ -20,7 +20,7 @@ function verdict(status: number): string {
   if (status === 200) return "OK";
   if (status === 401) return "token rejected";
   if (status === 403) return "permission denied — service account needs Cloud Datastore User";
-  if (status === 404) return "not found — the (default) database or project does not exist";
+  if (status === 404) return "not found — check FIRESTORE_DATABASE_ID and the project id";
   if (status === 400) return "bad request — payload rejected";
   return "unexpected";
 }
@@ -45,6 +45,7 @@ export default async function DiagnosticsPage() {
 
         <div className="rounded-xl bg-white p-6 shadow-lg">
           <Row label="Project ID" value={diag.projectId ?? "(not set)"} />
+          <Row label="Database ID" value={diag.databaseId} />
           <Row label="Service account" value={diag.clientEmail ?? "(no credentials)"} />
           <Row label="Config problem" value={diag.configProblem ?? "none"} />
           <Row label="Access token" value={diag.tokenOk ? "minted OK" : "FAILED — see server logs"} />
