@@ -197,8 +197,17 @@ async function getAccessToken(): Promise<string | null> {
   }
 }
 
-function documentsBase(projectId: string): string {
-  return `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents`;
+/**
+ * Resource name prefix, as it must appear in a document's `name` field.
+ * Not a URL: Firestore rejects a commit whose name starts with https://.
+ */
+function documentsPath(projectId: string): string {
+  return `projects/${projectId}/databases/(default)/documents`;
+}
+
+/** The same thing as a REST endpoint, for fetch. */
+function documentsUrl(projectId: string): string {
+  return `https://firestore.googleapis.com/v1/${documentsPath(projectId)}`;
 }
 
 /**
@@ -226,13 +235,13 @@ export async function recordJdClick(input: JdClickInput): Promise<void> {
 
   const visitorHash = hashVisitor(input.ip, input.userAgent);
   const eventId = `${input.slug}-${Date.now()}-${randomUUID().slice(0, 8)}`;
-  const base = documentsBase(projectId);
+  const path = documentsPath(projectId);
 
   const writes = [
     {
       // Event document — the full record of this click
       update: {
-        name: `${base}/${EVENTS_COLLECTION}/${eventId}`,
+        name: `${path}/${EVENTS_COLLECTION}/${eventId}`,
         fields: {
           slug: { stringValue: input.slug },
           referrer: input.referrer ? { stringValue: input.referrer } : { nullValue: null },
@@ -244,7 +253,7 @@ export async function recordJdClick(input: JdClickInput): Promise<void> {
     {
       // Counter document — created on first click thanks to the empty update mask
       update: {
-        name: `${base}/${COUNTS_COLLECTION}/${input.slug}`,
+        name: `${path}/${COUNTS_COLLECTION}/${input.slug}`,
         fields: {},
       },
       updateMask: { fieldPaths: [] as string[] },
@@ -256,7 +265,7 @@ export async function recordJdClick(input: JdClickInput): Promise<void> {
   ];
 
   try {
-    const response = await fetch(`${base}:commit`, {
+    const response = await fetch(`${documentsUrl(projectId)}:commit`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -334,7 +343,7 @@ export async function getJdClickStats(recentLimit = 25): Promise<JdClickStats> {
     return { configured: true, counts: [], recent: [], error: "Could not authenticate with Firestore." };
   }
 
-  const base = documentsBase(projectId);
+  const base = documentsUrl(projectId);
 
   try {
     const [countDocs, eventDocs] = await Promise.all([
