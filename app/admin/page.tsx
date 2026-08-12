@@ -1,6 +1,7 @@
 import { auth, signOut } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
 import MenuUploadForm from "./upload-form";
 import JdClicksPanel from "./jd-clicks-panel";
@@ -109,7 +110,11 @@ export default async function AdminPage() {
             Job Description Clicks
           </h2>
           <p className="text-sm text-gray-600 mb-4">
-            How many people opened each JD from the careers page.
+            How many people opened each JD from the careers page.{" "}
+            <Link href="/admin/diagnostics" className="text-[#2144c0] hover:underline">
+              Run Firestore diagnostics
+            </Link>{" "}
+            if the numbers look wrong.
           </p>
           <Suspense
             fallback={

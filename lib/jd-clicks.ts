@@ -282,6 +282,72 @@ export async function recordJdClick(input: JdClickInput): Promise<void> {
   }
 }
 
+export interface JdClickDiagnostics {
+  projectId: string | null;
+  configProblem: string | null;
+  clientEmail: string | null;
+  tokenOk: boolean;
+  /** Raw status + body of a read, so a missing database is not mistaken for an empty one */
+  read?: { status: number; body: string };
+  /** Raw status + body of a real write to a throwaway collection */
+  write?: { status: number; body: string };
+}
+
+const DIAGNOSTIC_COLLECTION = "jd_click_diagnostics";
+
+/**
+ * Exercises the read and write paths and reports what Firestore actually said.
+ *
+ * recordJdClick fails soft and listDocuments turns a 404 into an empty list, so
+ * a broken setup looks exactly like "no clicks yet" on the dashboard. This is
+ * the only place that surfaces the underlying status codes.
+ */
+export async function diagnoseJdClicks(): Promise<JdClickDiagnostics> {
+  const projectId = getProjectId();
+  const credentials = getCredentials();
+
+  const result: JdClickDiagnostics = {
+    projectId,
+    configProblem: describeConfigProblem(),
+    clientEmail: credentials?.client_email ?? null,
+    tokenOk: false,
+  };
+
+  if (!projectId || !credentials) return result;
+
+  const token = await getAccessToken();
+  if (!token) return result;
+  result.tokenOk = true;
+
+  const url = documentsUrl(projectId);
+  const truncate = (text: string) => (text.length > 600 ? `${text.slice(0, 600)}…` : text);
+
+  const readResponse = await fetch(`${url}/${COUNTS_COLLECTION}`, {
+    headers: { Authorization: `Bearer ${token}` },
+    cache: "no-store",
+  });
+  result.read = { status: readResponse.status, body: truncate(await readResponse.text()) };
+
+  const writeResponse = await fetch(`${url}:commit`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      writes: [
+        {
+          update: {
+            name: `${documentsPath(projectId)}/${DIAGNOSTIC_COLLECTION}/selftest`,
+            fields: { ok: { booleanValue: true } },
+          },
+          updateTransforms: [{ fieldPath: "ranAt", setToServerValue: "REQUEST_TIME" }],
+        },
+      ],
+    }),
+  });
+  result.write = { status: writeResponse.status, body: truncate(await writeResponse.text()) };
+
+  return result;
+}
+
 interface FirestoreDocument {
   name?: string;
   fields?: Record<string, Record<string, unknown>>;

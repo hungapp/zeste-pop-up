@@ -92,6 +92,26 @@ test("the counter write increments total", async () => {
   });
 });
 
+test("diagnostics report the raw status instead of swallowing a 404", async () => {
+  global.fetch = jest.fn(async (input: RequestInfo | URL) => {
+    const url = String(input);
+    if (url.includes("oauth2.googleapis.com")) {
+      return new Response(JSON.stringify({ access_token: "test-token", expires_in: 3600 }), { status: 200 });
+    }
+    // What a missing (default) database looks like — the dashboard hides this
+    return new Response(JSON.stringify({ error: { status: "NOT_FOUND" } }), { status: 404 });
+  }) as unknown as typeof fetch;
+
+  const { diagnoseJdClicks } = await import("@/lib/jd-clicks");
+  const diag = await diagnoseJdClicks();
+
+  expect(diag.tokenOk).toBe(true);
+  expect(diag.projectId).toBe(PROJECT_ID);
+  expect(diag.read?.status).toBe(404);
+  expect(diag.write?.status).toBe(404);
+  expect(diag.write?.body).toContain("NOT_FOUND");
+});
+
 test("bots are filtered before any write", async () => {
   const { isLikelyBot } = await import("@/lib/jd-clicks");
   expect(isLikelyBot("Slackbot-LinkExpanding 1.0")).toBe(true);
